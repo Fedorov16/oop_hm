@@ -1,0 +1,33 @@
+<?php
+
+	include_once('../controllers/ProductController.php');
+
+	class Router 
+	{
+		private $routes;
+
+		public function __construct() {
+			include_once('./config/routes.php');
+			$this->routes = $routes;
+		}
+
+		public function run() {
+			// 1) Получаем url, который ввел пользователь. 
+			// 2) Находим соответствие url пользователя и controller/action; 
+			// 3) Вызываем этот action 
+			$userUrl = $_SERVER['REQUEST_URI'];
+			foreach ($this->routes as $controller => $patterns) {
+				foreach ($patterns as $pattern => $action) {
+					$pattern = ROOT . $pattern;
+					if (preg_match("~$pattern~", $userUrl)) {
+						$controllerObj = new $controller; 
+						$controllerObj->$action();
+						exit();
+					}
+				}
+			}
+			// TODO: Отобразить страницу с ошибкой => ErrorsController -> index() - отобразить страницу 404
+			echo '404 - Page not found!'; 
+			exit();
+		}
+	}
