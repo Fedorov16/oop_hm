@@ -2,8 +2,8 @@
 
 	$routes = array(
 		"ProductsController" => array(
-			"Products/list" => "index",
-			"Products/add" => "add"
+			"products/list" => "index",
+			"products/add" => "add"
 		)
 		
 	);

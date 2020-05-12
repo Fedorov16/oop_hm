@@ -8,7 +8,7 @@ class Database{
     }
     private function connect(){
         //require_once дает ошибку, когда более 2-х запросов к БД
-        $config = require '../../config/db_config.php';
+        $config = require './config/db_config.php';
         $dsn = 'mysql:host='.$config['host'].';dbname='.$config['db_name'].';charset='.$config['charset'];
         $this->link = new PDO($dsn, $config['username'], $config['password']);
         return $this;

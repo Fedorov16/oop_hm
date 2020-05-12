@@ -1,9 +1,8 @@
 <?php
 
-	include_once('../models/Product.php');
+	include_once('./models/Product.php');
 
-	class ProductController 
-	{
+	class ProductsController{
 
 		public function index() {
 			//echo 'Вызван action index в ProductController';
