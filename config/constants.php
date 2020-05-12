@@ -1,6 +1,7 @@
 <?php
 
 	define('ROOT', '/oop_hm/');
+	define('FILE_ROOT', 'C:/xampp/htdocs' . ROOT); 
 	define('SITE_ROOT', 'http://localhost' . ROOT); 
 	define('ASSETS', SITE_ROOT . 'assets/');
 	define('CSS', ASSETS . 'css/');

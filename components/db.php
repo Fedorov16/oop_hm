@@ -1,6 +1,6 @@
 <?php
 
-class Database{
+class DB{
     private $link;
 
     public function __construct(){

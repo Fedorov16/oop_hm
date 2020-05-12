@@ -1,7 +1,5 @@
 <?php
 
-	include_once('./controllers/ProductController.php');
-
 	class Router 
 	{
 		private $routes;
@@ -17,11 +15,14 @@
 			// 3) Вызываем этот action 
 			$userUrl = $_SERVER['REQUEST_URI'];
 			foreach ($this->routes as $controller => $patterns) {
-				foreach ($patterns as $pattern => $action) {
+				foreach ($patterns as $pattern => $parametrizedAction) {
 					$pattern = ROOT . $pattern;
 					if (preg_match("~$pattern~", $userUrl)) {
 						$controllerObj = new $controller; 
-						$controllerObj->$action();
+						$parametrizedAction = preg_replace("~$pattern~", $parametrizedAction, $userUrl);
+						$parameters = explode('/', $parametrizedAction);
+						$action = array_shift($parameters);
+						call_user_func(array($controllerObj, $action), $parameters);
 						exit();
 					}
 				}

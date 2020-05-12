@@ -7,9 +7,11 @@ html, body {
   height: 100%;
 }
 body{
-    display: flex;
-  flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: Lobster, "Times New Roman", Arial, Helvetica, sans-serif;
 }
+
 /* Первый уровень HEADER */
 .top_header{
     display: flex;
@@ -196,3 +198,77 @@ footer {
 .dev__link{
     font-size: 14px;
 }
+
+/* КАРТОЧКИ ПРОДУКТОВ */
+
+.products {
+    max-width: 910px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .product {
+    margin-top: 20px;
+    width: 210px;
+    height: 301px;
+    border: 1px solid #eaeaea;
+  }
+  
+  .product_header {
+    background-image: url(../img/product1.png);
+    width: 210px;
+    height: 210px;
+  }
+  
+  .logo_heart {
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .logo_heart:hover {
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .desc_product > h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 200;
+  }
+  .desc_product > p {
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: 200;
+    font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+    color: #acacac;
+  }
+  
+  .for_order {
+    display: flex;
+    justify-content: space-between;
+  }
+  .for_order > p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+    color: #FF8C00;
+  }
+  
+  .to_order_product > a {
+    text-decoration: none;
+    color: #FF8C00;
+    transition: all 0.5s ease-in-out;
+  }
+  .to_order_product > a:hover {
+    color: #ff3c00;
+    font-size: 18px;
+    transition: all 0.5s ease-in-out;
+  }
+  

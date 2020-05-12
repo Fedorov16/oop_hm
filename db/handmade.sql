@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 07 2020 г., 09:03
+-- Время создания: Май 12 2020 г., 17:16
 -- Версия сервера: 10.4.11-MariaDB
 -- Версия PHP: 7.4.2
 
@@ -114,65 +114,22 @@ CREATE TABLE `connects` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `customers`
+-- Структура таблицы `genders`
 --
 
-CREATE TABLE `customers` (
-  `customer_id` int(10) UNSIGNED NOT NULL,
-  `customer_name` varchar(255) NOT NULL,
-  `customer_surname` varchar(255) NOT NULL,
-  `customer_login` varchar(255) NOT NULL,
-  `customer_password` char(60) NOT NULL,
-  `customer_email` varchar(255) NOT NULL,
-  `customer_phone` varchar(15) NOT NULL,
-  `customer_birth` date NOT NULL,
-  `customer_rating` tinyint(1) UNSIGNED NOT NULL,
-  `customer_reg_date` date NOT NULL,
-  `customer_status` tinyint(1) UNSIGNED NOT NULL,
-  `customer_gender_is_man` tinyint(1) UNSIGNED NOT NULL,
-  `customer_icon` varchar(255) NOT NULL
+CREATE TABLE `genders` (
+  `gender_id` tinyint(1) UNSIGNED NOT NULL,
+  `gender_value` varchar(30) NOT NULL,
+  `gender_short_value` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `customers`
+-- Дамп данных таблицы `genders`
 --
 
-INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_surname`, `customer_login`, `customer_password`, `customer_email`, `customer_phone`, `customer_birth`, `customer_rating`, `customer_reg_date`, `customer_status`, `customer_gender_is_man`, `customer_icon`) VALUES
-(1, 'Сергей', 'Федоров', 'fedorov.16', 'qwerty1', 'fedorov.16@bk.ru', '89111111111', '1994-06-20', 5, '2020-04-20', 0, 1, ''),
-(2, 'Михаил', 'Гризли', 'grizly15', 'qwerty5', 'grizly15@list.ru', '89555555555', '2000-01-02', 4, '2020-04-25', 0, 0, ''),
-(3, 'Кирилл', 'Плешивцев', 'plesh99', 'qwerty3', 'plesh99@gmail.com', '89333333333', '1994-02-18', 4, '2020-04-21', 0, 1, ''),
-(4, 'Кретова', 'Евгения', 'Kretova20', 'qwerty2', 'Kretova20@mail.ru', '89222222222', '1994-01-20', 5, '2020-04-21', 0, 0, ''),
-(5, 'Анна', 'Каренина', 'karbel7', 'qwerty4', 'karbel7@gmail.com', '89444444444', '1996-12-11', 4, '2020-04-22', 0, 0, ''),
-(6, 'Дина', 'Хранилова', 'hraniGod666', 'qwerty6', 'hraniGod666@gmail.ru', '89666666666', '1997-10-12', 5, '2020-04-23', 0, 0, ''),
-(70, 'Сергей', 'Федоров', 'fedorov17', '$2y$10$Rcp2luTVy.2gyROW07pDseFhwfEz8RMAlc8PRWqCaN8WPALm6U6xe', 'fedorov.11@bk.ru', '89819578811', '0000-00-00', 0, '2020-05-06', 0, 0, ''),
-(71, 'Сергей', 'Федоров', 'fedorov22', '$2y$10$cKmxfJg6/LgBIcr18JefWuuTsFyZ48GoxyREoZdvP7C.cH25s4W8G', 'fedorov.22@bk.ru', '89819578822', '0000-00-00', 0, '2020-05-06', 0, 0, ''),
-(72, 'Сергей', 'Федоров', 'fedorov33', '$2y$10$XRGI3uIMICikRwj09Qq8a.mvSK8vTMy3XgrrDivaaAKxnShK/J1KO', 'fedorov.33@bk.ru', '89819578833', '0000-00-00', 0, '2020-05-06', 0, 0, ''),
-(73, 'Сергей', 'Федоров', 'fedorov44', '$2y$10$EECXHUrHIgGdSfEUHVnO/ONBUeTRKfexJy62OcjIZ9QdlQQuWflw6', 'fedorov.164@bk.ru', '89819578844', '0000-00-00', 0, '2020-05-06', 0, 0, ''),
-(74, 'Сергей', 'Федоров', 'fedorov55', '$2y$10$Ce7UUxur4KBlIETIYr9fLu41wZEEDsLQtnEfKrEXncXY.9ZQ0FALm', 'fedorov.165@bk.ru', '89819578855', '0000-00-00', 0, '2020-05-06', 0, 0, '');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `customer_addresses`
---
-
-CREATE TABLE `customer_addresses` (
-  `customer_address_id` int(10) UNSIGNED NOT NULL,
-  `customer_address_customer` int(10) UNSIGNED NOT NULL,
-  `customer_address_address` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Дамп данных таблицы `customer_addresses`
---
-
-INSERT INTO `customer_addresses` (`customer_address_id`, `customer_address_customer`, `customer_address_address`) VALUES
-(1, 1, 1),
-(5, 2, 5),
-(4, 3, 4),
-(2, 4, 2),
-(3, 5, 3),
-(6, 6, 6);
+INSERT INTO `genders` (`gender_id`, `gender_value`, `gender_short_value`) VALUES
+(1, 'Мужской', 'м'),
+(2, 'Женский', 'ж');
 
 -- --------------------------------------------------------
 
@@ -185,8 +142,7 @@ CREATE TABLE `orders` (
   `order_count` int(10) NOT NULL,
   `order_date` date NOT NULL,
   `order_delivery` date NOT NULL,
-  `order_seller_id` int(10) UNSIGNED NOT NULL,
-  `order_customer_id` int(10) UNSIGNED NOT NULL,
+  `order_user_id` int(10) UNSIGNED NOT NULL,
   `order_product_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -204,7 +160,6 @@ CREATE TABLE `products` (
   `product_mark` tinyint(1) UNSIGNED NOT NULL,
   `product_count` int(10) NOT NULL,
   `product_category_id` tinyint(2) UNSIGNED NOT NULL,
-  `product_seller_id` int(10) UNSIGNED NOT NULL,
   `product_icon` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -212,41 +167,94 @@ CREATE TABLE `products` (
 -- Дамп данных таблицы `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_price`, `product_mark`, `product_count`, `product_category_id`, `product_seller_id`, `product_icon`) VALUES
-(1, 'Сумка', 'Сумка женская 40 на 34 см. Цвет черный', '990', 5, 3, 7, 1, 'url1'),
-(2, 'Шапка и шарф', 'Комплект: шапка двойная с натуральным помпоном и шарф зимние. Цвет \"вода\"', '2200', 5, 1, 2, 1, 'url2'),
-(3, 'Рюкзак', 'Рюкзак кожаный. Высота 22см, ширина 19см, глубина 10см', '1150', 4, 2, 7, 1, 'url3'),
-(4, 'Футболка', 'Футболка мужская с логотипом \"The only one\"', '700', 5, 1, 1, 1, 'url4'),
-(5, 'Рубашка детская', 'Рубашка детская клетчатая 28 размер', '400', 4, 2, 4, 1, 'url5');
+INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_price`, `product_mark`, `product_count`, `product_category_id`, `product_icon`) VALUES
+(1, 'Сумка', 'Сумка женская 40 на 34 см. Цвет черный', '990', 5, 3, 7, 'url1'),
+(2, 'Шапка и шарф', 'Комплект: шапка двойная с натуральным помпоном и шарф зимние. Цвет \"вода\"', '2200', 5, 1, 2, 'url2'),
+(3, 'Рюкзак', 'Рюкзак кожаный. Высота 22см, ширина 19см, глубина 10см', '1150', 4, 2, 7, 'url3'),
+(4, 'Футболка', 'Футболка мужская с логотипом \"The only one\"', '700', 5, 1, 1, 'url4'),
+(5, 'Рубашка детская', 'Рубашка детская клетчатая 28 размер', '400', 4, 2, 4, 'url5');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sellers`
+-- Структура таблицы `roles`
 --
 
-CREATE TABLE `sellers` (
-  `seller_id` int(10) UNSIGNED NOT NULL,
-  `seller_name` varchar(255) NOT NULL,
-  `seller_surname` varchar(255) NOT NULL,
-  `seller_login` varchar(255) NOT NULL,
-  `seller_password` char(32) NOT NULL,
-  `seller_email` varchar(255) NOT NULL,
-  `seller_phone` varchar(15) NOT NULL,
-  `seller_birth` date NOT NULL,
-  `seller_rating` tinyint(1) UNSIGNED NOT NULL,
-  `seller_reg_date` date NOT NULL,
-  `seller_status` tinyint(1) UNSIGNED NOT NULL,
-  `seller_gender_is_man` tinyint(1) UNSIGNED NOT NULL,
-  `seller_icon` varchar(255) NOT NULL
+CREATE TABLE `roles` (
+  `role_id` tinyint(1) UNSIGNED NOT NULL,
+  `role_value` varchar(30) NOT NULL,
+  `role_short_value` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `sellers`
+-- Дамп данных таблицы `roles`
 --
 
-INSERT INTO `sellers` (`seller_id`, `seller_name`, `seller_surname`, `seller_login`, `seller_password`, `seller_email`, `seller_phone`, `seller_birth`, `seller_rating`, `seller_reg_date`, `seller_status`, `seller_gender_is_man`, `seller_icon`) VALUES
-(1, 'Ольга', 'Кретова', 'Kretol1', 'asdfgh1', 'Kretol1@gmail.com', '89123456789', '1981-09-15', 5, '2020-04-20', 0, 0, '');
+INSERT INTO `roles` (`role_id`, `role_value`, `role_short_value`) VALUES
+(1, 'seller', 'sel'),
+(2, 'customer', 'cus');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_surname` varchar(255) NOT NULL,
+  `user_login` varchar(255) NOT NULL,
+  `user_password` char(60) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_phone` varchar(15) NOT NULL,
+  `user_birth` date NOT NULL,
+  `user_gender_id` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
+  `user_rating` tinyint(1) UNSIGNED NOT NULL,
+  `user_reg_date` date NOT NULL,
+  `user_status` tinyint(1) UNSIGNED NOT NULL,
+  `user_icon` varchar(255) NOT NULL,
+  `user_role_id` tinyint(1) UNSIGNED NOT NULL DEFAULT 2
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_surname`, `user_login`, `user_password`, `user_email`, `user_phone`, `user_birth`, `user_gender_id`, `user_rating`, `user_reg_date`, `user_status`, `user_icon`, `user_role_id`) VALUES
+(1, 'Сергей', 'Федоров', 'fedorov.16', 'qwerty1', 'fedorov.16@bk.ru', '89111111111', '1994-06-20', 1, 5, '2020-04-20', 0, '', 2),
+(2, 'Михаил', 'Гризли', 'grizly15', 'qwerty5', 'grizly15@list.ru', '89555555555', '2000-01-02', 1, 4, '2020-04-25', 0, '', 2),
+(3, 'Кирилл', 'Плешивцев', 'plesh99', 'qwerty3', 'plesh99@gmail.com', '89333333333', '1994-02-18', 1, 4, '2020-04-21', 0, '', 2),
+(4, 'Кретова', 'Евгения', 'Kretova20', 'qwerty2', 'Kretova20@mail.ru', '89222222222', '1994-01-20', 2, 5, '2020-04-21', 0, '', 2),
+(5, 'Анна', 'Каренина', 'karbel7', 'qwerty4', 'karbel7@gmail.com', '89444444444', '1996-12-11', 2, 4, '2020-04-22', 0, '', 2),
+(6, 'Дина', 'Хранилова', 'hraniGod666', 'qwerty6', 'hraniGod666@gmail.ru', '89666666666', '1997-10-12', 2, 5, '2020-04-23', 0, '', 2),
+(80, 'Сергей', 'Федоров', 'fedorov174', '$2y$10$JAQFXtupI/1nQCuIH7.wM.88lPehykXjQSJ0/JCrxvA2JhcGe0buC', 'fedorov.164@bk.ru', '89819578824', '0000-00-00', 1, 0, '2020-05-10', 0, '', 2),
+(82, 'Сергей', 'Федоров', 'fedorov17', '$2y$10$wUoX7eidiNZAtVfBpB085ebmoMGMwjTimnBBtmqgb2ms8eTjx5Sou', 'fedorov.17@bk.ru', '89819578878', '0000-00-00', 1, 0, '2020-05-10', 0, '', 2),
+(83, 'Сергей', 'Федоров', 'fedorov171', '$2y$10$6uhVOzmRyskKVZ4nI/ou1uSepd1djKHz41Y5YGDPdc/UTwL6/vUA.', 'fedorov.11@bk.ru', '89819578821', '0000-00-00', 1, 0, '2020-05-10', 0, '', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user_addresses`
+--
+
+CREATE TABLE `user_addresses` (
+  `user_address_id` int(10) UNSIGNED NOT NULL,
+  `user_address_user` int(10) UNSIGNED NOT NULL,
+  `user_address_address` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `user_addresses`
+--
+
+INSERT INTO `user_addresses` (`user_address_id`, `user_address_user`, `user_address_address`) VALUES
+(1, 1, 1),
+(5, 2, 5),
+(4, 3, 4),
+(2, 4, 2),
+(3, 5, 3),
+(6, 6, 6);
 
 --
 -- Индексы сохранённых таблиц
@@ -279,27 +287,17 @@ ALTER TABLE `connects`
   ADD KEY `connect_user_id` (`connect_customer_id`);
 
 --
--- Индексы таблицы `customers`
+-- Индексы таблицы `genders`
 --
-ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customer_id`),
-  ADD KEY `customer_gender_id` (`customer_gender_is_man`);
-
---
--- Индексы таблицы `customer_addresses`
---
-ALTER TABLE `customer_addresses`
-  ADD PRIMARY KEY (`customer_address_id`),
-  ADD KEY `customer_address_customer` (`customer_address_customer`,`customer_address_address`),
-  ADD KEY `customer_address_address` (`customer_address_address`);
+ALTER TABLE `genders`
+  ADD PRIMARY KEY (`gender_id`);
 
 --
 -- Индексы таблицы `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
-  ADD KEY `order_seller_id` (`order_seller_id`,`order_customer_id`,`order_product_id`),
-  ADD KEY `order_customer_id` (`order_customer_id`),
+  ADD KEY `order_seller_id` (`order_user_id`,`order_product_id`),
   ADD KEY `order_product_id` (`order_product_id`);
 
 --
@@ -307,15 +305,29 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
-  ADD KEY `product_category_id` (`product_category_id`),
-  ADD KEY `product_seller_id` (`product_seller_id`);
+  ADD KEY `product_category_id` (`product_category_id`);
 
 --
--- Индексы таблицы `sellers`
+-- Индексы таблицы `roles`
 --
-ALTER TABLE `sellers`
-  ADD PRIMARY KEY (`seller_id`),
-  ADD KEY `seller_gender_id` (`seller_gender_is_man`);
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`role_id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `user_gender_id` (`user_gender_id`),
+  ADD KEY `user_role_id` (`user_role_id`);
+
+--
+-- Индексы таблицы `user_addresses`
+--
+ALTER TABLE `user_addresses`
+  ADD PRIMARY KEY (`user_address_id`),
+  ADD KEY `customer_address_customer` (`user_address_user`,`user_address_address`),
+  ADD KEY `customer_address_address` (`user_address_address`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -346,16 +358,10 @@ ALTER TABLE `connects`
   MODIFY `connect_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `customers`
+-- AUTO_INCREMENT для таблицы `genders`
 --
-ALTER TABLE `customers`
-  MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
-
---
--- AUTO_INCREMENT для таблицы `customer_addresses`
---
-ALTER TABLE `customer_addresses`
-  MODIFY `customer_address_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `genders`
+  MODIFY `gender_id` tinyint(1) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
@@ -370,10 +376,22 @@ ALTER TABLE `products`
   MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT для таблицы `sellers`
+-- AUTO_INCREMENT для таблицы `roles`
 --
-ALTER TABLE `sellers`
-  MODIFY `seller_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `roles`
+  MODIFY `role_id` tinyint(1) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
+--
+-- AUTO_INCREMENT для таблицы `user_addresses`
+--
+ALTER TABLE `user_addresses`
+  MODIFY `user_address_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -389,29 +407,34 @@ ALTER TABLE `addresses`
 -- Ограничения внешнего ключа таблицы `connects`
 --
 ALTER TABLE `connects`
-  ADD CONSTRAINT `connects_ibfk_1` FOREIGN KEY (`connect_customer_id`) REFERENCES `customers` (`customer_id`);
-
---
--- Ограничения внешнего ключа таблицы `customer_addresses`
---
-ALTER TABLE `customer_addresses`
-  ADD CONSTRAINT `customer_addresses_ibfk_1` FOREIGN KEY (`customer_address_address`) REFERENCES `addresses` (`address_id`),
-  ADD CONSTRAINT `customer_addresses_ibfk_2` FOREIGN KEY (`customer_address_customer`) REFERENCES `customers` (`customer_id`);
+  ADD CONSTRAINT `connects_ibfk_1` FOREIGN KEY (`connect_customer_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`order_customer_id`) REFERENCES `customers` (`customer_id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`order_product_id`) REFERENCES `products` (`product_id`),
-  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`order_seller_id`) REFERENCES `sellers` (`seller_id`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`order_user_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`order_product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_category_id`) REFERENCES `categories` (`category_id`),
-  ADD CONSTRAINT `products_ibfk_4` FOREIGN KEY (`product_seller_id`) REFERENCES `sellers` (`seller_id`);
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_category_id`) REFERENCES `categories` (`category_id`);
+
+--
+-- Ограничения внешнего ключа таблицы `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_gender_id`) REFERENCES `genders` (`gender_id`),
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`user_role_id`) REFERENCES `roles` (`role_id`);
+
+--
+-- Ограничения внешнего ключа таблицы `user_addresses`
+--
+ALTER TABLE `user_addresses`
+  ADD CONSTRAINT `user_addresses_ibfk_1` FOREIGN KEY (`user_address_address`) REFERENCES `addresses` (`address_id`),
+  ADD CONSTRAINT `user_addresses_ibfk_2` FOREIGN KEY (`user_address_user`) REFERENCES `users` (`user_id`);
 
 DELIMITER $$
 --
