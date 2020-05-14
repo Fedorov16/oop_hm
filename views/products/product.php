@@ -1,4 +1,3 @@
- <!-- include_once('../../config/constants.php'); -->
  <?php include_once('./views/templates/head.php');
     include_once('./views/templates/header.php');?>
 
@@ -39,7 +38,7 @@
                 <a href="#"><img src="../../assets/img/like1.svg" alt="logo_heart" class="logo_heart"></a>
             </div>
             <div class="desc_product">
-                <h2 class="name_product"> <?= $product_name ?> </h2>
+                <h2 class="name_product"><a href="<?= SITE_ROOT . 'products/view/' . $product_id?>"><?= $product_name ?></a></h2>
                 <p class="category_product"> <?= $category_name ?> </p>
                 <p class="date_product">11 мая 16:40</p>
                 <div class="for_order">

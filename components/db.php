@@ -22,7 +22,9 @@ class DB{
     public function query ($sql, $params){
         $sth = $this->link->prepare($sql);
         $sth->execute($params);
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        //если что ищи ошибку здесь
+        // $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $result = $sth->fetch(PDO::FETCH_ASSOC);
 
         if($result === false){
             return[];

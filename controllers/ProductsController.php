@@ -24,7 +24,8 @@
 			else{
 				$productModel = new Product();
 				$product = $productModel->getProductById($id);
-				print_r($product);
+				// print_r($product);
+				$title = $product['product_name'];
 				include_once('./views/products/product_view.php');
 				// echo 'Вызван action с параметром id = ' . $id;
 			}
@@ -44,6 +45,7 @@
 					echo 'Такого продукта нет';
 					exit();
 				}
+				$title = "Изм. &laquo;" . $product['product_name'] . "&raquo;";
 				include_once('./views/products/product_edit.php');
 				// echo 'Вызван action с параметром id = ' . $id;
 			}

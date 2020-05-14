@@ -1,1 +1,21 @@
-<?php
+<?php include_once('./views/templates/head.php');
+    include_once('./views/templates/header.php');
+    extract($product, EXTR_OVERWRITE);?>
+<section>
+    <h2><?= $product_name; ?></h2>
+    <div class="product_view">
+        <div class="product_view_main">
+        <?php ?>
+            <div class="img_slider">
+                <img src="../../assets/img/product_icon/scarf.jpg" alt="" class='img_slider_img'>
+            </div>
+            <p class="product_view_desc"><?= $product_desc?></p>
+            <a href="<?= SITE_ROOT . 'products/edit/' . $product_id ?>" class="btn btn-primary">Редактировать</a>
+        </div>
+        <div class="product_right_bar">
+            <p class="product_right_price">Цена <?= $product_price ?> руб</p> 
+            <p class="product_right_category">Категория: <?= $category_name ?> </p>
+        </div>
+    </div>
+</section>
+<?php// include_once('./views/templates/footer.php'); ?>
