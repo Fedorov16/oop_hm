@@ -1,12 +1,12 @@
 <?php
 include_once('../../components/db.php');
-$cook_sess = new DB();
+$cook_sess = DB::connect();
 $cook_sess->cookie_session();
 
 if(isset($_SESSION['user_login'])){
     echo $_SESSION['user_login'] . ', добро пожаловать на страницу администратора!';
 
-$count_page_visit = new DB();
+$count_page_visit = DB::connect();
 $count_page_visit->cookie_visit();
 echo 'Страница посещена' .'  '. $_COOKIE['page_visit'];
 

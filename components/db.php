@@ -1,18 +1,29 @@
 <?php
 
-class DB{
+final class DB
+{
     private $link;
+    private static $connection;
 
-    public function __construct(){
-        $this->connect();
-    }
-    private function connect(){
-        //require_once дает ошибку, когда более 2-х запросов к БД
-        $config = require './config/db_config.php';
+    private function __construct(){
+        $config = require_once './config/db_config.php';
         $dsn = 'mysql:host='.$config['host'].';dbname='.$config['db_name'].';charset='.$config['charset'];
         $this->link = new PDO($dsn, $config['username'], $config['password']);
-        return $this;
+        self::$connection = $this;
+        // return $this;
     }
+    public static function connect(){
+        if(!self::$connection){
+            new self();
+        }
+        return self::$connection;
+    }
+    private function __clone(){}
+    private function __sleep(){}
+    private function __wakeup(){}
+
+
+    
     //Внесение данных в таблицу
     public function execute($sql, $params){
         $sth = $this->link->prepare($sql);
@@ -25,6 +36,18 @@ class DB{
         //если что ищи ошибку здесь
         // $result = $sth->fetchAll(PDO::FETCH_ASSOC);
         $result = $sth->fetch(PDO::FETCH_ASSOC);
+
+        if($result === false){
+            return[];
+        }
+        return $result;
+    }
+
+    //Запросы с параметром where с несколькими строками
+    public function queryNaO ($sql, $params){
+        $sth = $this->link->prepare($sql);
+        $sth->execute($params);
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
         if($result === false){
             return[];

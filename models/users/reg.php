@@ -27,24 +27,24 @@ if (isset($_POST['login'])) {
     $pass = password_hash($pass, PASSWORD_BCRYPT);
 
     //проверка существования пользователя
-    $check_login = new DB();
+    $check_login = DB::connect();
     $search_login = $check_login->query_search("SELECT EXISTS (SELECT user_login FROM users WHERE user_login = :user_login)", [':user_login' => $login]);
     if($search_login){
         die('Пользователь с таким логином уже существует');
     }
-    $check_email = new DB();
+    $check_email = DB::connect();
     $search_email = $check_email->query_search("SELECT EXISTS (SELECT user_email FROM users WHERE user_email = :user_email)", [':user_email' => $email]);
     if($search_email){
         die('Пользователь с таким Email уже существует');
     }
-    $check_phone = new DB();
+    $check_phone = DB::connect();
     $search_phone = $check_phone->query_search("SELECT EXISTS (SELECT user_phone FROM users WHERE user_phone = :user_phone)", [':user_phone' => $phone]);
     if($search_phone){
         die('Пользователь с данным телефоном уже существует');
     }
 
     //добавляем пользователя
-    $new_user = new DB();
+    $new_user = DB::connect();
     $new_user->execute("INSERT INTO `users` (user_login, user_name, user_surname, user_password, user_phone, user_email, user_reg_date) 
     VALUES (:user_login, :user_name, :user_surname, :user_password, :user_phone, :user_email, :user_reg_date)", [
         'user_login' => $login,
