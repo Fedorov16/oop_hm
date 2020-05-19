@@ -23,18 +23,20 @@
         <hr>
         <div class="footer_header">
              <ul class="category_top">
-                 <li class="li_inline-block"><a href="#" class="category_top_text">Каталог товаров</a></li>
-                 <li class="li_inline-block"><a href="#" class="category_top_text">Мастер классы</a></li>
-                 <li class="li_inline-block"><a href="#" class="category_top_text">Акции</a></li>
+                 <li class="li_inline-block li_dropdown standart-border"><a href="#" class="category_top_text">Каталог товаров</a>
+                    <ul class="category_footer display_none">
+                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Мужская одежда</a></li>
+                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Женская одежда</a></li>
+                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Детская одежда</a></li>
+                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Товары для детей</a></li>
+                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Бижутерия</a></li>
+                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Красота и здоровье</a></li>
+                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Аксесуары</a></li>
+                    </ul>
+                </li>
+                 <li class="li_inline-block standart-border"><a href="#" class="category_top_text">Мастер классы</a></li>
+                 <li class="li_inline-block standart-border"><a href="#" class="category_top_text">Акции</a></li>
              </ul>
-             <ul class="category_footer">
-                <li class="li_inline-block"><a href="#" class="category_footer_text">Мужская одежда</a></li>
-                <li class="li_inline-block"><a href="#" class="category_footer_text">Женская одежда</a></li>
-                <li class="li_inline-block"><a href="#" class="category_footer_text">Детская одежда</a></li>
-                <li class="li_inline-block"><a href="#" class="category_footer_text">Товары для детей</a></li>
-                <li class="li_inline-block"><a href="#" class="category_footer_text">Бижутерия</a></li>
-                <li class="li_inline-block"><a href="#" class="category_footer_text">Красота и здоровье</a></li>
-                <li class="li_inline-block"><a href="#" class="category_footer_text">Аксесуары</a></li>
-             </ul>
+             
         </div>
      </header>

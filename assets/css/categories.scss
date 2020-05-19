@@ -1,0 +1,21 @@
+.display_none{
+    display: none;
+}
+.category_content{
+    margin: 0 auto;
+}
+.header_category{
+    font-size: 24px;
+}
+.category_item{
+    max-width: 250px;
+    text-align: center;
+    &:hover{
+        font-size: 26px;
+        background-color: #cc874e;
+        border-radius: 5px;
+    }
+}
+.btns{
+    text-align: center;
+}

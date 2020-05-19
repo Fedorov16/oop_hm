@@ -43,8 +43,8 @@ final class DB
         return $result;
     }
 
-    //Запросы с параметром where с несколькими строками
-    public function queryNaO ($sql, $params){
+    //Запрос для ред
+    public function queryEdit ($sql){
         $sth = $this->link->prepare($sql);
         $sth->execute($params);
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);

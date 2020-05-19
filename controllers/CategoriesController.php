@@ -10,9 +10,11 @@ class CategoriesController{
         return;
     }
 
-    
     public function add() {
-        echo 'Вызван action add в CategoriesController';
+        $title = 'Категории';
+        $categoryModel = new Category();
+        include_once('./views/categories/category.php');
+        $add = $categoryModel->addCategory();
         return;
     }
 

@@ -44,7 +44,7 @@
                 <a href="mainto:svfedorov16@gmail.com?subject=Ваша верстка оставляет желать лучшего" class="dev__link">Сайт создал svfedorov16@gmail.com</a>
             </div>   
         </footer>
-        <script src="<?= LIBS; ?>jquery/jquery.js"> </script>
+        
 		<script src="<?= LIBS; ?>bootstrap/js/bootstrap.js"> </script>
     </body>
 </html>

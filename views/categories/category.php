@@ -2,31 +2,18 @@
  include_once('./views/templates/head.php');
  include_once('./views/templates/header.php');?>
 
-<section>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Категория</th>
-                <th>Продукт</th>
-                <th>Описание</th>
-                <th>Цена</th>
-                <th>Количество</th>
-                <th>Лого</th>
-            </tr>            
-        </thead>
-        <tbody>
+<section class='category'>
+    <div class="category_content">
+        <h2 class='header_category'>Категории товаров</h2>
             <?php foreach($categories as $category){extract($category, EXTR_OVERWRITE) ?>
-            <tr>
-                <td><?= $category_id ?></td>
-                <td><a href="<?= SITE_ROOT . 'categories/view/' . $category_id?>"><?= $category_name ?></a></td>
-                <td><?= $product_name ?></td>
-                <td><?= $product_desc ?></td>
-                <td><?= $product_price ?></td>
-                <td><?= $product_count ?></td>
-                <td><?= $product_icon ?></td>
-            </tr>
+        <li class='category_item'><a href="#"> <?= $category_name ?></a></li>
             <?php } ?>
-        </tbody>
-    </table>
+        <li class='category_item category_item_new'><a href="#"></a></li><br>
+        <div class="btns">
+            <button class="category_btn_review">Добавить категорию</button>
+            <input type='text' class="category_name display_none" name ='category_name'><br>
+            <button type='submit' class="category_btn_add display_none">Добавить</button>
+        </div>
+    </div>
 </section>
+<script src="<?= JS; ?>category_ajax.js"> </script>
