@@ -12,6 +12,7 @@
             </div>
             <p class="product_view_desc"><?= $product_desc?></p>
             <a href="<?= SITE_ROOT . 'products/edit/' . $product_id ?>" class="btn btn-primary">Редактировать</a>
+            <a href="<?= SITE_ROOT . 'products/delete/' . $product_id ?>" class="btn btn-primary">Удалить(пока без JS)</a>
         </div>
         <div class="product_right_bar">
             <p class="product_right_price">Цена <?= $product_price ?> руб</p> 

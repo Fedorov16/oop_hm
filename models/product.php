@@ -51,4 +51,14 @@
 			$NewProducts = $product_query->query($query);
 			return;
 	}
+	public function deleteProduct($product){
+
+		$product_query = DB::connect();
+		$query = (new Delete('products'))
+				
+				->where("product_id = $product[product_id]")
+				->build();
+		$DeleteProduct = $product_query->query($query);
+		return;
+	}
 }

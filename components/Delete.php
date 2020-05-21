@@ -30,7 +30,7 @@
         public function build(){
             $query = 
             "DELETE FROM $this->from
-            $this->where
+            WHERE $this->where
             $this->orderBy
             $this->limit;
             ";

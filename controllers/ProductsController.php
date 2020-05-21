@@ -119,4 +119,23 @@
 		
 			return;
 		}
+		public function delete($parameters = []){
+			$id = $parameters[0];
+			if(!$id){
+				echo 'Некорректный id';
+				exit();
+			}
+			else{
+				$productModel = new Product();
+				$product = $productModel->getProductById($id);
+				$productModel = new Product();
+				// TODO: use PHP function
+				$product = array(
+					'product_id' => $id
+				);
+				$productModel->deleteProduct($product);
+				header('Location: ' . SITE_ROOT . 'products/list');
+					}	
+				}
+					
 	}
