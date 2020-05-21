@@ -2,15 +2,15 @@
 
 final class DB
 {
-    private $link;
+    // private $link;
     private static $connection;
 
     private function __construct(){
         $config = require_once './config/db_config.php';
         $dsn = 'mysql:host='.$config['host'].';dbname='.$config['db_name'].';charset='.$config['charset'];
-        $this->link = new PDO($dsn, $config['username'], $config['password']);
-        self::$connection = $this;
-        // return $this;
+        $opt = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
+        $pdo = new PDO($dsn, $config['username'], $config['password'], $opt);
+        self::$connection = $pdo;
     }
     public static function connect(){
         if(!self::$connection){
@@ -23,56 +23,7 @@ final class DB
     private function __wakeup(){}
 
 
-    
-    //Внесение данных в таблицу
-    public function execute($sql, $params){
-        $sth = $this->link->prepare($sql);
-        return $sth->execute($params);
-    }
-    //Запросы с параметром where
-    public function query ($sql, $params){
-        $sth = $this->link->prepare($sql);
-        $sth->execute($params);
-        //если что ищи ошибку здесь
-        // $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-        $result = $sth->fetch(PDO::FETCH_ASSOC);
-
-        if($result === false){
-            return[];
-        }
-        return $result;
-    }
-
-    //Запрос для ред
-    public function queryEdit ($sql){
-        $sth = $this->link->prepare($sql);
-        $sth->execute($params);
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-        if($result === false){
-            return[];
-        }
-        return $result;
-    }
-    //Запросы без параметров
-    public function queryAll ($sql){
-        $sth = $this->link->prepare($sql);
-        $sth->execute();
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-        if($result === false){
-            return[];
-        }
-        return $result;
-    }
-    //проверка существования
-    public function query_search($sql, $params){
-        $sth = $this->link->prepare($sql);
-        $sth->execute($params);
-        $result = $sth->fetchColumn();
-        return $result;
-    }
-    //куки
+    //куки//надо перенести эти блоки
     public function cookie_visit(){
         if(isset ($_COOKIE['page_visit'])){
             //не забыть про время куки

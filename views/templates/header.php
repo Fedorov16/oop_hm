@@ -2,8 +2,8 @@
     <header>
         <div class="top_header">
              <div class="logo_header">
-                 <a href="#"><img src="<?= IMG ?>logo.png" alt="лого"></a>
-                 <a href="#" class="logo_header_des header_text">Handmade по-Нижегородски</a>
+                 <a href="<?= ROOT ?>products/list"><img src="<?= IMG ?>logo.png" alt="лого"></a>
+                 <a href="<?= ROOT ?>products/list" class="logo_header_des header_text">Handmade по-Нижегородски</a>
              </div>
              <div class="search_header">
                  <input type="text" name="field_search" id="field_search" class="field_search" placeholder="Поиск"><!--

@@ -4,6 +4,7 @@
 
 <section class='category'>
     <div class="category_content">
+        <h2>Недоделанный(неправильно сделанный Ajax)</h2>
         <h2 class='header_category'>Категории товаров</h2>
             <?php foreach($categories as $category){extract($category, EXTR_OVERWRITE) ?>
         <li class='category_item'><a href="#"> <?= $category_name ?></a></li>

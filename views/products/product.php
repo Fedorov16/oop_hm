@@ -24,6 +24,7 @@
         </div>
         <?php } ?>
     </div>
-    
+    </br><h2><a href="<?= SITE_ROOT . 'products/add'?>">Добавить продукт</a></h2>
+    </br><h2><a href="<?= SITE_ROOT . 'categories/list'?>">Просмотр категорий</a></h2>
 </section>
 <?php include_once('./views/templates/footer.php'); ?>

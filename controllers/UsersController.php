@@ -23,5 +23,20 @@ class UsersController{
             
         include_once('./views/users/reg.php');
     }
+}
+    public function auth(){
+        $title = 'Авторизация';
+        if(isset($_POST['user_login'])){
+            $helper = new Helper();
+            $user_login = $helper->escape($_POST['user_login']);
+            $user_password = $helper->escape($_POST['user_password']);
+
+            $user = new User();
+            if(!$user->checkIfLoginAndPasswordExists($user_login, $user_password)){
+                $errors[] = 'Такого юзера нет';
+            }
+        } 
+        include_once('./views/')
+    }
 
 }

@@ -3,7 +3,6 @@
 	class ProductsController{
 
 		public function index() {
-			//echo 'Вызван action index в ProductController';
 			$title = 'Продукты';
 			$productModel = new Product();
 			$products = $productModel->getAll();
@@ -13,7 +12,40 @@
 
 		
 		public function add() {
-			echo 'Вызван action add в ProductController';
+			
+			if (isset($_POST['product_name'])){
+			$title = 'Добавить продукт';
+			$helper = new Helper();
+			$product_name = $helper->SanitizeString($_POST['product_name']);
+			$product_price = $helper->SanitizeString($_POST['product_price']);
+			$product_desc = $helper->SanitizeString($_POST['product_desc']);
+			$product_category_id = $_POST['product_category_id'];
+			$validation = new Validation();
+				$errors = [];
+			if(!$validation->checkLenght($product_name)){
+				$errors[] = 'Количество символов для названия не должно быть меньше 2-х'; 
+			}
+			if(!$validation->checkNumber($product_price, 99999, 25)){
+				$errors[] = 'Цена не менее 25 и не более 99 999';
+			}
+			if(empty($errors)){
+				$productModel = new Product();
+				// TODO: use PHP function
+				$product = array(
+					'product_name' => $product_name,
+					'product_price' => $product_price,
+					'product_category_id' => $product_category_id,
+					'product_desc' => $product_desc
+				);
+				$newProduct = $productModel->AddProduct();
+				header('Location: ' . SITE_ROOT . 'products/list');
+			}
+			
+		}	
+			$categoryModel = new Category();
+			$category_name = $categoryModel->getAll();
+			include_once('./views/products/product_add.php');
+		
 			return;
 		}
 
@@ -26,8 +58,8 @@
 			else{
 				$productModel = new Product();
 				$product = $productModel->getProductById($id);
-				// print_r($product);
-				$title = $product['product_name'];
+				print_r($product);
+				// $title = $product['product_name'];
 				include_once('./views/products/product_view.php');
 				// echo 'Вызван action с параметром id = ' . $id;
 			}
@@ -45,9 +77,9 @@
 			else{
 				if (isset($_POST['product_name'])){
 					$helper = new Helper();
-					$product_name = $helper->escape($_POST['product_name']);
-					$product_price = $helper->escape($_POST['product_price']);
-					$product_desc = $helper->escape($_POST['product_desc']);
+					$product_name = $helper->SanitizeString($_POST['product_name']);
+					$product_price = $helper->SanitizeString($_POST['product_price']);
+					$product_desc = $helper->SanitizeString($_POST['product_desc']);
 					$product_category_id = $_POST['product_category_id'];
 					$validation = new Validation();
 					$errors = [];

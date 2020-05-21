@@ -2,8 +2,9 @@
     include_once('./views/templates/header.php');
     extract($product, EXTR_OVERWRITE);?>
 <section>
-    <h2><?= $product_name; ?></h2>
+    
     <div class="product_view">
+    <h2><?= $product_name; ?></h2><br>
         <div class="product_view_main">
         <?php ?>
             <div class="img_slider">

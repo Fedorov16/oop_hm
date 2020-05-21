@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Авторизация</title>
-    <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-</head>
-<body>
+<?php include_once('./views/templates/head.php');
+    include_once('./views/templates/header.php');?>
+<section>
     <div class="container">
         <h1>Форма авторизации</h1>
         <form action="../../models/users/auth.php" method="POST">
@@ -17,6 +10,4 @@
         </form>
         <button class="btn btn-info"><a class="default" href="reg.php">Регистрация</a></button>
     </div>
-    <script src="../../assets/libs/bootstrap/js/bootstrap.js"></script>
-</body>
-</html>
+</section>

@@ -4,7 +4,7 @@ class Category
 	{
 		public function getAll() {
 			$categories_query = DB::connect();
-			$get_categories = $categories_query->queryAll(
+			$get_categories = $categories_query->query(
 			"SELECT category_id, category_name FROM `categories` ORDER BY category_id");
 			return $get_categories;
         }
