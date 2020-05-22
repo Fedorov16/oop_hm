@@ -9,7 +9,6 @@
 			include_once('./views/products/product.php');
 			return;
 		}
-
 		
 		public function add() {
 			
@@ -127,12 +126,6 @@
 			}
 			else{
 				$productModel = new Product();
-				$product = $productModel->getProductById($id);
-				$productModel = new Product();
-				// TODO: use PHP function
-				$product = array(
-					'product_id' => $id
-				);
 				$productModel->deleteProduct($product);
 				header('Location: ' . SITE_ROOT . 'products/list');
 					}	

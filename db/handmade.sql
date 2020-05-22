@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 12 2020 г., 17:16
+-- Время создания: Май 21 2020 г., 08:55
 -- Версия сервера: 10.4.11-MariaDB
 -- Версия PHP: 7.4.2
 
@@ -68,7 +68,13 @@ INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 (4, 'Товары для детей'),
 (5, 'Бижутерия'),
 (6, 'Красота и здоровье'),
-(7, 'Аксессуары');
+(7, 'Аксессуары'),
+(51, 'Новая категория'),
+(52, 'Новая категория 2'),
+(53, 'И еще одна'),
+(59, 'fgj'),
+(60, 'fbmn'),
+(61, 'fdghdfgh');
 
 -- --------------------------------------------------------
 
@@ -157,10 +163,10 @@ CREATE TABLE `products` (
   `product_name` varchar(255) NOT NULL,
   `product_desc` varchar(255) NOT NULL,
   `product_price` varchar(45) NOT NULL,
-  `product_mark` tinyint(1) UNSIGNED NOT NULL,
-  `product_count` int(10) NOT NULL,
+  `product_mark` tinyint(1) UNSIGNED NOT NULL DEFAULT 5,
+  `product_count` int(10) NOT NULL DEFAULT 1,
   `product_category_id` tinyint(2) UNSIGNED NOT NULL,
-  `product_icon` varchar(255) NOT NULL
+  `product_icon` varchar(255) NOT NULL DEFAULT 'icon'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -168,11 +174,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_price`, `product_mark`, `product_count`, `product_category_id`, `product_icon`) VALUES
-(1, 'Сумка', 'Сумка женская 40 на 34 см. Цвет черный', '990', 5, 3, 7, 'url1'),
-(2, 'Шапка и шарф', 'Комплект: шапка двойная с натуральным помпоном и шарф зимние. Цвет \"вода\"', '2200', 5, 1, 2, 'url2'),
+(1, 'Сумка', 'Сумка женская 40 на 32 см. Цвет черный', '1020', 5, 3, 7, 'url1'),
+(2, 'Шапка и шарф', 'Комплект: шапка двойная с натуральным помпоном и шарф зимние. Цвет \"вода\"', '2400', 5, 1, 2, 'url2'),
 (3, 'Рюкзак', 'Рюкзак кожаный. Высота 22см, ширина 19см, глубина 10см', '1150', 4, 2, 7, 'url3'),
-(4, 'Футболка', 'Футболка мужская с логотипом \"The only one\"', '700', 5, 1, 1, 'url4'),
-(5, 'Рубашка детская', 'Рубашка детская клетчатая 28 размер', '400', 4, 2, 4, 'url5');
+(4, 'Футболка', 'Футболка мужская с логотипом \"The only one\".', '850', 5, 1, 1, 'url4'),
+(5, 'Рубашка детская', 'Рубашка детская клетчатая 28 размер', '400', 4, 2, 4, 'url5'),
+(6, 'Шапка женская', 'Шапка женская. Цвет белый. Размер любой ', '680', 4, 1, 2, 'url6');
 
 -- --------------------------------------------------------
 
@@ -343,7 +350,7 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` tinyint(2) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `category_id` tinyint(2) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT для таблицы `city`
@@ -373,7 +380,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`

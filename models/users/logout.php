@@ -1,5 +1,4 @@
 <?php
-require_once '../../components/db.php';
 
 $_SESSION = [];
 if(isset($_COOKIE[session_name()])){

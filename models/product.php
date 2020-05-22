@@ -51,12 +51,12 @@
 			$NewProducts = $product_query->query($query);
 			return;
 	}
-	public function deleteProduct($product){
+	public function deleteProduct($id){
 
 		$product_query = DB::connect();
 		$query = (new Delete('products'))
 				
-				->where("product_id = $product[product_id]")
+				->where("product_id = $id")
 				->build();
 		$DeleteProduct = $product_query->query($query);
 		return;

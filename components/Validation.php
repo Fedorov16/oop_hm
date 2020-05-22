@@ -2,8 +2,9 @@
 
 class Validation{
 
-    public function checkLenght($str, $length = 2){
-        return strlen($str) >= $length;
+    //ПРОВЕРИТЬ ПРОБЛЕМУ ФУНКЦИИ
+    public function checkLenght($str, $lengthMin = 1, $lengthMax = 50){
+        return ((strlen($str) > $lengthMin) || (strlen($str) < $lengthMax));
     }
 
     public function checkRegExp($str, $reg){
