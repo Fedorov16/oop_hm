@@ -6,38 +6,44 @@ class UsersController{
 
         if(isset($_POST['user_login'])){
             $helper = new Helper();
-            //дописать хелпер и переписать туда всё
             $user_login = $helper->SanitizeString($_POST['user_login']);
-            $user_name = filter_var(trim($_POST['user_name']), FILTER_SANITIZE_STRING);
-            $user_surname = filter_var(trim($_POST['user_surname']), FILTER_SANITIZE_STRING);
-            $user_password = filter_var(trim($_POST['user_pass']), FILTER_SANITIZE_STRING);
-            $user_password2 = filter_var(trim($_POST['user_pass2']), FILTER_SANITIZE_STRING);
-            $user_phone = filter_var(trim($_POST['user_phone']), FILTER_SANITIZE_STRING);
-            $user_email = filter_var(trim($_POST['user_email']), FILTER_SANITIZE_STRING);
+            $user_name = $helper->SanitizeString($_POST['user_name']);
+            $user_surname = $helper->SanitizeString($_POST['user_surname']);
+            $user_password = $helper->SanitizeString($_POST['user_pass']);
+            $user_password2 = $helper->SanitizeString($_POST['user_pass2']);
+            $user_phone = $helper->SanitizeString($_POST['user_phone']);
+            $user_email = $helper->SanitizeString($_POST['user_email']);
             $user_reg_date = date('y-m-d');
-            $errors = [];
 
-            // if ($user_password != $user_password2) {
-            //     $errors[] = 'Пароли должны совпадать';
-            // }
+            $errors = [];
+            
             $user = new User();
             $validation = new Validation();
 
-            // if ($user->checkIfLoginExists($user_login)) {
-            //     $errors[] = 'Такой логин уже существует';
-            // }
-            // if($validation->checkLenght($user_login,'5','50')){
-            //     $errors[] = "Недопустимая длина логина";
-            // } 
-            // if($validation->checkLenght($user_name,'1','40')){
-            //     $errors[] = "Недопустимая длина имени";
-            // }
-            // if($validation->checkLenght($user_surname,'1','40')){
-            //     $errors[] = "Недопустимая длина Фамилии";
-            // }
-            // if($validation->checkLenght($user_password,'5','40')){
-            //     $errors[] = "Недопустимая длина пароля";
-            // }
+            if ($user_password != $user_password2) {
+                $errors[] = 'Пароли должны совпадать';
+            }
+            if ($user->checkIfLoginExists($user_login)) {
+                $errors[] = 'Такой логин уже существует';
+            }
+            if ($user->checkIfEmailExists($user_email)) {
+                $errors[] = 'Такой email уже зарегистрирован';
+            }
+            if ($user->checkIfPhoneExists($user_phone)) {
+                $errors[] = 'Такой телефон уже зарегистрирован';
+            }
+            if($validation->checkLenght($user_login, 5, 50)){
+                $errors[] = "Недопустимая длина логина";
+            } 
+            if($validation->checkLenght($user_name)){
+                $errors[] = "Недопустимая длина имени";
+            }
+            if($validation->checkLenght($user_surname)){
+                $errors[] = "Недопустимая длина Фамилии";
+            }
+            if($validation->checkLenght($user_password, 5, 40)){
+                $errors[] = "Недопустимая длина пароля";
+            }
             if (empty($errors)) {
                 $userInfo = array(
                     'user_login' => $user_login,
@@ -49,16 +55,18 @@ class UsersController{
                     'user_reg_date' => $user_reg_date
                 );
             $user->register($userInfo);
-            // header('Location: ' . SITE_ROOT . 'product/list');
+            header('Location: ' . SITE_ROOT . 'products/list');
+            }
+            else{
+                echo '<pre>';
+                print_r($errors);
+                echo '</pre>';
+                exit();
+            }
         }
-        else{
-            echo '<pre>';
-            print_r($errors);
-            echo '</pre>';
-        }
+        $title = 'Регистрация';
+        include_once('./views/users/reg.php');
     }
-    include_once('./views/users/reg.php');
-}
     public function auth(){
         $title = 'Авторизация';
         if(isset($_POST['user_login'])){

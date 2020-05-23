@@ -1,14 +1,43 @@
 <?php
 
-
 	class User 
 	{
 		public function checkIfLoginExists($user_login) {
 			$db = DB::connect();
-			$query = "
-				SELECT count(*) AS `count`
-				FROM `users`
-				WHERE `user_login` = '$user_login';
+			$query = 
+			"SELECT count(*) AS `count`
+			FROM `users`
+			WHERE `user_login` = '$user_login';
+			";
+			$result = $db->query($query);
+			$count = $result->fetch();
+			if ($count['count'] == 1) {
+				return true; 
+			} else {
+				return false;
+			}
+		}
+		public function checkIfEmailExists($user_email) {
+			$db = DB::connect();
+			$query = 
+			"SELECT count(*) AS `count`
+			FROM `users`
+			WHERE `user_email` = '$user_email';
+			";
+			$result = $db->query($query);
+			$count = $result->fetch();
+			if ($count['count'] == 1) {
+				return true; 
+			} else {
+				return false;
+			}
+		}
+		public function checkIfPhoneExists($user_phone) {
+			$db = DB::connect();
+			$query = 
+			"SELECT count(*) AS `count`
+			FROM `users`
+			WHERE `user_phone` = '$user_phone';
 			";
 			$result = $db->query($query);
 			$count = $result->fetch();
@@ -22,17 +51,18 @@
 		public function register($user) {
 			$db = DB::connect();
 			$hashPass = password_hash($user['user_password'], PASSWORD_BCRYPT);
-			// $hasheadPassword = md5($user['user_password']);
 			$query = "INSERT INTO `users`
 					SET `user_login` = '$user[user_login]',
 						`user_password` = '$hashPass',
-						`user_name` => '$user[user_name]',
-						`user_surname`=> '$user[user_surname]',
-						`user_phone` => $user[user_phone],
-						`user_email` => '$user[user_email]',
-						'user_reg_date' => $user[user_reg_date];
+						`user_name` = '$user[user_name]',
+						`user_surname`= '$user[user_surname]',
+						`user_phone` = $user[user_phone],
+						`user_email` = '$user[user_email]',
+						`user_reg_date` = '$user[user_reg_date]';
 			";
+			echo $query;
 			$result = $db->query($query);
+			
 			$userId = $db->lastInsertId();
 			$this->fullAuthorizedUser($userId);
 		}

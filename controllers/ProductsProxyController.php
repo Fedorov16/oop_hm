@@ -9,7 +9,7 @@ class ProductsProxyController{
     }
 
     public function add(){
-        if(User::ckeckIfUserAutorized()){
+        if(User::checkIfUserAuthorized()){
             $this->controller->add();
         } else{
             echo "У вас недостаточно прав для просмотра данной страницы";
@@ -26,7 +26,7 @@ class ProductsProxyController{
     }
 
     public function delete($parameters = []){
-        if(User::ckeckIfUserAutorized()){
+        if(User::checkIfUserAuthorized()){
         $this->controller->delete($parameters);
         } else{
             echo "У вас недостаточно прав для просмотра данной страницы";
