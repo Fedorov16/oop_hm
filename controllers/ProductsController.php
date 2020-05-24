@@ -21,8 +21,8 @@
 			$product_category_id = $_POST['product_category_id'];
 			$validation = new Validation();
 				$errors = [];
-			if(!$validation->checkLenght($product_name)){
-				$errors[] = 'Количество символов для названия не должно быть меньше 2-х'; 
+			if($validation->checkLenght($product_name, 2, 40)){
+				$errors[] = 'Количество символов для названия не должно быть меньше 3-х'; 
 			}
 			if(!$validation->checkNumber($product_price, 99999, 25)){
 				$errors[] = 'Цена не менее 25 и не более 99 999';
@@ -57,7 +57,7 @@
 			else{
 				$productModel = new Product();
 				$product = $productModel->getProductById($id);
-				print_r($product);
+				// print_r($product);
 				// $title = $product['product_name'];
 				include_once('./views/products/product_view.php');
 				// echo 'Вызван action с параметром id = ' . $id;
@@ -121,14 +121,13 @@
 		public function delete($parameters = []){
 			$id = $parameters[0];
 			if(!$id){
-				echo 'Некорректный id';
-				exit();
+				return;
 			}
 			else{
 				$productModel = new Product();
-				$productModel->deleteProduct($product);
+				$productModel->deleteProduct($id);
 				header('Location: ' . SITE_ROOT . 'products/list');
-					}	
-				}
+			}	
+		}
 					
 	}

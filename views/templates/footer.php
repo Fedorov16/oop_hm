@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="title_footer">
-                    <h2 class="footer_head_head">Handmade по-Нижегородски</h2>
+                    <h2 class="footer_head_head">Handmade по-нижегородски</h2>
                     <div class="footer_head_link">
                         <li class="li_footer li_block">Интернет-магазин товаров ручной работы</li>
                     </div>

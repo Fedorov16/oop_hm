@@ -6,6 +6,7 @@
 			$products_query = DB::connect();
 			$query=(new Select('products'))
 				->joins([['LEFT', 'categories', 'product_category_id', 'category_id']])
+				->where('WHERE `product_is_deleted` = 0')
 				-> build();
 			$get_products = $products_query->query($query);
 			$result = $get_products->fetchAll();
@@ -54,11 +55,23 @@
 	public function deleteProduct($id){
 
 		$product_query = DB::connect();
-		$query = (new Delete('products'))
-				
+		$query = (new Update('products'))
+				->set(['product_is_deleted' => 1])
 				->where("product_id = $id")
 				->build();
 		$DeleteProduct = $product_query->query($query);
+		// print_r($query);
 		return;
+	}
+	public function getProductListForOrder($idList = []) {
+		$db = DB::connect();
+		$ids = implode(', ', $idList);
+		$query = (new Select('products'))
+					->where("WHERE `product_id` IN ($ids)")
+					->build();
+
+		$result = $db->query($query); 
+		$products = $result->fetchAll();
+		return $products;
 	}
 }

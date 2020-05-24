@@ -4,8 +4,8 @@ class ProductsProxyController{
 
     private $controller;
 
-    public function __constract(){
-        $this ->controller = new ProductsController();
+    public function __construct(){
+        $this->controller = new ProductsController();
     }
 
     public function add(){

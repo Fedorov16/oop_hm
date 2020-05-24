@@ -18,7 +18,7 @@
                 <p class="date_product">11 мая 16:40</p>
                 <div class="for_order">
                     <p class="price_product"><?= $product_price ?></p>
-                    <p class="to_order_product"><a href="#">В корзину</a></p>
+                    <a href="javascript:void(0)" class="to_order_product" onclick="addToCart(<?= $product['product_id']; ?>)">В корзину</a>
                 </div>
             </div>
         </div>

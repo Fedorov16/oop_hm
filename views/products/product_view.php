@@ -12,7 +12,7 @@
             </div>
             <p class="product_view_desc"><?= $product_desc?></p>
             <a href="<?= SITE_ROOT . 'products/edit/' . $product_id ?>" class="btn btn-primary">Редактировать</a>
-            <a class="btn btn-primary" onclick="deletebook(<?=$product['product_id'] ;?>, '<?= SITE_ROOT; ?>')">Удалить(пока без JS)</a>
+            <a class="btn btn-primary" onclick="deleteBook(<?= $product['product_id']; ?>, '<?= SITE_ROOT; ?>')">Удалить продукт</a>
         </div>
         <div class="product_right_bar">
             <p class="product_right_price">Цена <?= $product_price ?> руб</p> 
