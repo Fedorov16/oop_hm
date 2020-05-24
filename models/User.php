@@ -62,44 +62,47 @@
 			";
 			echo $query;
 			$result = $db->query($query);
-			
 			$userId = $db->lastInsertId();
 			$this->fullAuthorizedUser($userId);
 		}
 
-
-		public function checkIfLoginAndPasswordExists($user_login, $user_password) {
+		public function checkIfUserExists($user_login, $user_password) {
 			$db = DB::connect();
-			$hashedPassword = md5($user_password);
 			$query = (new Select('users'))
-						->what(['count' => 'count(*)'])
-						->where("WHERE user_login = '$user_login' AND user_password = '$hashedPassword'")
-						->build();
-			$result = $db->query($query);
-			$count = $result->fetch();
-			if ($count['count'] == 1) {
-				return true;
-			} else {
-				return false;
-			}
+                ->what(['user_login' => 'user_login',
+                        'user_pass' => 'user_password'
+				])
+				->where("WHERE user_login = '$user_login'")
+                ->build();
+                
+                $result = $db->query($query);
+                $resultFetch = $result->fetch();
+                print_r($resultFetch);
+                if(password_verify(($_POST['user_pass']), $resultFetch['user_pass'])){
+                    return true;
+				} 
+				else{
+					return false;
+				}
 		}
 
-		public function auth($login) {
-			$userId = $this->getUserIdByLogin($login);
+		public function auth($user_login) {
+			$userId = $this->getUserIdByLogin($user_login);
 			if ($userId !== 0) {
 				$this->fullAuthorizedUser($userId);
 			}
+			return;
 		}
 
-		public function getUserIdByLogin($login) {
+		public function getUserIdByLogin($user_login) {
 			$db = DB::connect();
 			$query = (new Select('users'))
 						->what(['user_id'])
-						->where("WHERE user_login = '$login'")
+						->where("WHERE user_login = '$user_login'")
 						->build();
 			$result = $db->query($query);
-			$userInfo = $result->fetch();
-			return isset($userInfo['user_id']) ? $userInfo['user_id'] : 0;
+			$resultFetch = $result->fetch();
+			return isset($resultFetch['user_id']) ? $resultFetch['user_id'] : 0;
 		}
 
 		private function fullAuthorizedUser($userId) {
@@ -111,11 +114,11 @@
 			setcookie('user_id', $userId, time() + 2*24*60*60, '/');
 			setcookie('token_time', $tokenTime, time() + 2*24*60*60, '/');
 			$db = DB::connect();
-			$query = "
-				INSERT INTO `connects`
-					SET `connect_token` = '$token', 
-						`connect_session_id` = $userId,
-						`connect_token_time` = FROM_UNIXTIME($tokenTime);
+			$query = 
+				"INSERT INTO `connects`
+				SET `connect_token` = '$token', 
+				`connect_user_id` = $userId,
+				`connect_token_time` = FROM_UNIXTIME($tokenTime);
 			";
 			$db->query($query);
 		}
@@ -133,7 +136,7 @@
 						->where("WHERE `connect_token` = '$token' 
 								AND `connect_user_id` = $userId 
 								AND `connect_token_time` = FROM_UNIXTIME($tokenTime)")
-						->build();
+						->build(); 
 			$result = $db->query($query);
 			$connectInfo = $result->fetch();
 			$connectId = $connectInfo['connect_id']; 
@@ -145,11 +148,11 @@
 					setcookie('token', $newToken, time() + 2*24*60*60, '/');
 					setcookie('token_time', $newTokenTime, time() + 2*24*60*60, '/');
 					$db = DB::connect();
-					$query = "
-						UPDATE `connects`
-							SET `connect_token` = '$newToken', 
-								`connect_token_time` = FROM_UNIXTIME($newTokenTime)
-							WHERE `connect_id` = ;
+					$query = 
+					"UPDATE `connects`
+					SET `connect_token` = '$newToken', 
+						`connect_token_time` = FROM_UNIXTIME($newTokenTime)
+					WHERE `connect_id` = $connectId;
 					";
 				}
 				return true;

@@ -14,10 +14,13 @@
                      <a href="#" class="header_icon"><i class="fa fa-cart-arrow-down fa-fw" aria-hidden="true"></i></a>
                      <a href="#" class="basket_header_des header_text">Корзина</a>
                  </div>
+                <!-- для проверки работы авторизации. Потом убрать -->
+                <?php if(User::checkIfUserAuthorized()) : ;?>
                  <div class="wish_basket">
                      <a href="#" class="header_icon"><i class="fa fa-heart fa-fw" aria-hidden="true"></i></a>
                      <a href="#" class="wish_header_des header_text">Понравилось</a>
                  </div>
+                <?php endif; ?>
              </div>
         </div>
         <hr>

@@ -3,7 +3,7 @@
 class UsersController{
 
     public function reg(){
-
+        $title = 'Регистрация';
         if(isset($_POST['user_login'])){
             $helper = new Helper();
             $user_login = $helper->SanitizeString($_POST['user_login']);
@@ -57,33 +57,40 @@ class UsersController{
             $user->register($userInfo);
             header('Location: ' . SITE_ROOT . 'products/list');
             }
-            else{
-                echo '<pre>';
-                print_r($errors);
-                echo '</pre>';
-                exit();
-            }
+            // else{
+            //     echo '<pre>';
+            //     print_r($errors);
+            //     echo '</pre>';
+            //     exit();
+            // }
         }
-        $title = 'Регистрация';
         include_once('./views/users/reg.php');
     }
     public function auth(){
         $title = 'Авторизация';
         if(isset($_POST['user_login'])){
             $helper = new Helper();
-            $user_login = $helper->SanitizeString($_POST['login']);
-            $user_password = filter_var(trim($_POST['pass']), FILTER_SANITIZE_STRING);
+            $user_login = $helper->SanitizeString($_POST['user_login']);
+            $user_password = $helper->SanitizeString ($_POST['user_pass']);
 
             $user = new User();
             $errors = [];
 
-            if (!$user->checkIfLoginAndPasswordExists($user_login, $user_pass)) {
+            if (!$user->checkIfUserExists($user_login, $user_password)) {
                 $errors[] = 'Логин или пароль введен неверно';
             }
             if (empty($errors)) {
                 $user->auth($user_login);
                 header('Location: ' . SITE_ROOT . 'products/list');
             }
+            else{
+                echo '<pre>';
+                print_r($errors);
+                echo '</pre>';
+                exit();
+            }
+
+
         }
         include_once('./views/users/auth.php');
     }
