@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 21 2020 г., 08:55
+-- Время создания: Май 25 2020 г., 22:58
 -- Версия сервера: 10.4.11-MariaDB
 -- Версия PHP: 7.4.2
 
@@ -74,7 +74,8 @@ INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 (53, 'И еще одна'),
 (59, 'fgj'),
 (60, 'fbmn'),
-(61, 'fdghdfgh');
+(61, 'fdghdfgh'),
+(62, 'Аксессуары2');
 
 -- --------------------------------------------------------
 
@@ -113,9 +114,28 @@ CREATE TABLE `connects` (
   `connect_id` int(10) UNSIGNED NOT NULL,
   `connect_session_id` char(64) NOT NULL,
   `connect_token` char(32) NOT NULL,
-  `connect_customer_id` int(10) UNSIGNED NOT NULL,
-  `connect_token_tine` timestamp NOT NULL DEFAULT current_timestamp()
+  `connect_user_id` int(10) UNSIGNED NOT NULL,
+  `connect_token_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `connects`
+--
+
+INSERT INTO `connects` (`connect_id`, `connect_session_id`, `connect_token`, `connect_user_id`, `connect_token_time`) VALUES
+(17, '', '27gc87f65db5a8107g1a2821eg9615bf', 1, '2020-05-24 11:22:01'),
+(18, '', '81d52588gdb542a9cc1da1a5455450d9', 1, '2020-05-24 13:34:29'),
+(19, '', '152ef214c9c51geec64ee0267f423g46', 1, '2020-05-24 14:42:48'),
+(20, '', '99843gf36b5d148ae5b910280cdeec87', 1, '2020-05-24 15:50:22'),
+(21, '', '7d8ggg693ae256f903g0b7ea726e7c3a', 1, '2020-05-24 16:57:29'),
+(22, '', '0c513c32gf6a792bffc1d0902248fc1g', 1, '2020-05-25 05:18:58'),
+(23, '', '488c4e762651b2ba72e5edf8e9eb70gg', 1, '2020-05-25 06:06:45'),
+(24, '', '448d95fdee3d55c565422gb3e276f2bg', 1, '2020-05-25 06:08:25'),
+(25, '', '69d91aed5dg9815d30c8d513887d87ag', 1, '2020-05-25 06:08:36'),
+(26, '', '4ec0960f5ge54562b5a7eg425792gb34', 101, '2020-05-25 06:10:27'),
+(27, '', 'ae6c6dbe2373344b36ag080d1gfe5133', 1, '2020-05-25 06:27:36'),
+(28, '', 'e7c93d3532f45e1ece2854e688aafe51', 1, '2020-05-25 19:47:47'),
+(29, '', '71d3g8g5f855cd5c8d3g73a18acfeed0', 1, '2020-05-25 20:49:01');
 
 -- --------------------------------------------------------
 
@@ -147,10 +167,24 @@ CREATE TABLE `orders` (
   `order_id` int(10) UNSIGNED NOT NULL,
   `order_count` int(10) NOT NULL,
   `order_date` date NOT NULL,
-  `order_delivery` date NOT NULL,
-  `order_user_id` int(10) UNSIGNED NOT NULL,
-  `order_product_id` int(10) UNSIGNED NOT NULL
+  `order_user_id` int(10) UNSIGNED DEFAULT NULL,
+  `order_product_id` int(10) UNSIGNED NOT NULL,
+  `order_info` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `order_count`, `order_date`, `order_user_id`, `order_product_id`, `order_info`) VALUES
+(12, 1, '2020-05-25', 1, 2, NULL),
+(13, 1, '2020-05-25', 1, 3, NULL),
+(14, 1, '2020-05-25', 1, 1, NULL),
+(15, 1, '2020-05-25', 1, 2, NULL),
+(16, 3, '2020-05-25', 1, 3, NULL),
+(17, 1, '2020-05-25', NULL, 1, 'имя: Сергей, телефон: 89819578828, email: fedorov.16@bk.ru'),
+(18, 3, '2020-05-25', NULL, 2, 'имя: Сергей, телефон: 89819578828, email: fedorov.16@bk.ru'),
+(19, 1, '2020-05-25', NULL, 3, 'имя: Сергей, телефон: 89819578828, email: fedorov.16@bk.ru');
 
 -- --------------------------------------------------------
 
@@ -166,20 +200,25 @@ CREATE TABLE `products` (
   `product_mark` tinyint(1) UNSIGNED NOT NULL DEFAULT 5,
   `product_count` int(10) NOT NULL DEFAULT 1,
   `product_category_id` tinyint(2) UNSIGNED NOT NULL,
-  `product_icon` varchar(255) NOT NULL DEFAULT 'icon'
+  `product_icon` varchar(255) NOT NULL DEFAULT 'icon',
+  `product_is_deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_price`, `product_mark`, `product_count`, `product_category_id`, `product_icon`) VALUES
-(1, 'Сумка', 'Сумка женская 40 на 32 см. Цвет черный', '1020', 5, 3, 7, 'url1'),
-(2, 'Шапка и шарф', 'Комплект: шапка двойная с натуральным помпоном и шарф зимние. Цвет \"вода\"', '2400', 5, 1, 2, 'url2'),
-(3, 'Рюкзак', 'Рюкзак кожаный. Высота 22см, ширина 19см, глубина 10см', '1150', 4, 2, 7, 'url3'),
-(4, 'Футболка', 'Футболка мужская с логотипом \"The only one\".', '850', 5, 1, 1, 'url4'),
-(5, 'Рубашка детская', 'Рубашка детская клетчатая 28 размер', '400', 4, 2, 4, 'url5'),
-(6, 'Шапка женская', 'Шапка женская. Цвет белый. Размер любой ', '680', 4, 1, 2, 'url6');
+INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_price`, `product_mark`, `product_count`, `product_category_id`, `product_icon`, `product_is_deleted`) VALUES
+(1, 'Сумка', 'Сумка женская 40 на 32 см. Цвет черный', '1020', 5, 3, 7, 'url1', 0),
+(2, 'Шапка и шарф', 'Комплект: шапка двойная с натуральным помпоном и шарф зимние. Цвет \"вода\"', '2400', 5, 1, 2, 'url2', 0),
+(3, 'Рюкзак', 'Рюкзак кожаный. Высота 22см, ширина 19см, глубина 10см', '1150', 4, 2, 7, 'url3', 0),
+(4, 'Футболка', 'Футболка мужская с логотипом \"The only one\".', '850', 5, 1, 1, 'url4', 0),
+(5, 'Рубашка детская', 'Рубашка детская клетчатая 28 размер', '400', 4, 2, 4, 'url5', 0),
+(6, 'Шапка женская', 'Шапка женская. Цвет белый. Размер любой ', '680', 4, 1, 2, 'url6', 0),
+(14, 'Что-то новое2', 'вапрвапр', '1020', 5, 1, 1, 'icon', 0),
+(15, 'р', 'ыарвапр', '1020', 5, 1, 6, 'icon', 1),
+(16, 'вапрвсапсвпр', 'варар', '456', 5, 1, 1, 'icon', 1),
+(17, 'dfghd', 'fhjfghj', '999', 5, 1, 1, 'icon', 1);
 
 -- --------------------------------------------------------
 
@@ -229,15 +268,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_surname`, `user_login`, `user_password`, `user_email`, `user_phone`, `user_birth`, `user_gender_id`, `user_rating`, `user_reg_date`, `user_status`, `user_icon`, `user_role_id`) VALUES
-(1, 'Сергей', 'Федоров', 'fedorov.16', 'qwerty1', 'fedorov.16@bk.ru', '89111111111', '1994-06-20', 1, 5, '2020-04-20', 0, '', 2),
+(1, 'Сергей', 'Федоров', 'fedorov1', '$2y$10$jChJcPPJYCrfe9zIGO0jbecaUF08lt1eAbCuGegQaxuXzCbXiM3GO', 'fedorov.111@bk.ru', '89819578111', '0000-00-00', 1, 0, '2020-05-24', 0, '', 2),
 (2, 'Михаил', 'Гризли', 'grizly15', 'qwerty5', 'grizly15@list.ru', '89555555555', '2000-01-02', 1, 4, '2020-04-25', 0, '', 2),
 (3, 'Кирилл', 'Плешивцев', 'plesh99', 'qwerty3', 'plesh99@gmail.com', '89333333333', '1994-02-18', 1, 4, '2020-04-21', 0, '', 2),
 (4, 'Кретова', 'Евгения', 'Kretova20', 'qwerty2', 'Kretova20@mail.ru', '89222222222', '1994-01-20', 2, 5, '2020-04-21', 0, '', 2),
 (5, 'Анна', 'Каренина', 'karbel7', 'qwerty4', 'karbel7@gmail.com', '89444444444', '1996-12-11', 2, 4, '2020-04-22', 0, '', 2),
 (6, 'Дина', 'Хранилова', 'hraniGod666', 'qwerty6', 'hraniGod666@gmail.ru', '89666666666', '1997-10-12', 2, 5, '2020-04-23', 0, '', 2),
-(80, 'Сергей', 'Федоров', 'fedorov174', '$2y$10$JAQFXtupI/1nQCuIH7.wM.88lPehykXjQSJ0/JCrxvA2JhcGe0buC', 'fedorov.164@bk.ru', '89819578824', '0000-00-00', 1, 0, '2020-05-10', 0, '', 2),
-(82, 'Сергей', 'Федоров', 'fedorov17', '$2y$10$wUoX7eidiNZAtVfBpB085ebmoMGMwjTimnBBtmqgb2ms8eTjx5Sou', 'fedorov.17@bk.ru', '89819578878', '0000-00-00', 1, 0, '2020-05-10', 0, '', 2),
-(83, 'Сергей', 'Федоров', 'fedorov171', '$2y$10$6uhVOzmRyskKVZ4nI/ou1uSepd1djKHz41Y5YGDPdc/UTwL6/vUA.', 'fedorov.11@bk.ru', '89819578821', '0000-00-00', 1, 0, '2020-05-10', 0, '', 2);
+(100, 'Сергей', 'Федоров', 'fedorov100', '$2y$10$NAbzkgpxu9f3K9BxT7fbKO97suX/k0v1IjDgzT2mdMI.wGTLKXbAC', 'fedorov.100@bk.ru', '89819578100', '0000-00-00', 1, 0, '2020-05-24', 0, '', 2),
+(101, 'Сергей', 'Федоров', 'fedorov165', '$2y$10$dzAX4jc75jy.lMIDNmJbo.R53rc2u/rl1AmD./GrGHpbuZeKA2Fa2', 'fedorov.55@bk.ru', '89819578855', '0000-00-00', 1, 0, '2020-05-25', 0, '', 2);
 
 -- --------------------------------------------------------
 
@@ -256,7 +294,6 @@ CREATE TABLE `user_addresses` (
 --
 
 INSERT INTO `user_addresses` (`user_address_id`, `user_address_user`, `user_address_address`) VALUES
-(1, 1, 1),
 (5, 2, 5),
 (4, 3, 4),
 (2, 4, 2),
@@ -291,7 +328,7 @@ ALTER TABLE `city`
 --
 ALTER TABLE `connects`
   ADD PRIMARY KEY (`connect_id`),
-  ADD KEY `connect_user_id` (`connect_customer_id`);
+  ADD KEY `connect_user_id` (`connect_user_id`);
 
 --
 -- Индексы таблицы `genders`
@@ -350,7 +387,7 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` tinyint(2) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `category_id` tinyint(2) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT для таблицы `city`
@@ -362,7 +399,7 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT для таблицы `connects`
 --
 ALTER TABLE `connects`
-  MODIFY `connect_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `connect_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT для таблицы `genders`
@@ -374,13 +411,13 @@ ALTER TABLE `genders`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`
@@ -392,7 +429,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT для таблицы `user_addresses`
@@ -414,7 +451,7 @@ ALTER TABLE `addresses`
 -- Ограничения внешнего ключа таблицы `connects`
 --
 ALTER TABLE `connects`
-  ADD CONSTRAINT `connects_ibfk_1` FOREIGN KEY (`connect_customer_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `connects_ibfk_1` FOREIGN KEY (`connect_user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `orders`

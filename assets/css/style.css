@@ -136,9 +136,11 @@ A:hover {
 .li_inline-block {
   display: inline-block;
 }
-.float_right{
+
+.float_right {
   float: right;
 }
+
 /*Body*/
 section {
   display: flex;
@@ -247,7 +249,7 @@ footer > div {
 .product {
   margin-top: 20px;
   width: 210px;
-  height: 301px;
+  height: 310px;
   border: 1px solid #eaeaea;
 }
 
@@ -277,11 +279,15 @@ footer > div {
   font-weight: 200;
 }
 .desc_product > p {
-  margin: 5px 0;
+  margin: 0 0 5px;
   font-size: 14px;
   font-weight: 200;
   font-family: "Times New Roman", Arial, Helvetica, sans-serif;
   color: #acacac;
+}
+
+.date_product {
+  margin: 0;
 }
 
 .for_order {
@@ -296,15 +302,19 @@ footer > div {
   color: #FF8C00;
 }
 
-.to_order_product > a {
+.to_order_product {
   text-decoration: none;
   color: #FF8C00;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-.to_order_product > a:hover {
+.to_order_product:hover {
   color: #ff3c00;
   font-size: 18px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.to_order_product:active {
+  color: #000000;
+  font-size: 18px;
 }
 
 /* просмотр продукта */

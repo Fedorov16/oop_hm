@@ -7,6 +7,7 @@ class CartsController{
         $cartString = isset($_COOKIE['cart']) ? $_COOKIE['cart'] : ""; 
         if ($cartString !== "") {
             $cart = json_decode($cartString, true);
+
             if (isset($_POST['user_name'])) {
                 $helper = new Helper();
                 $user_name = $helper->SanitizeString($_POST['user_name']); 
@@ -15,14 +16,16 @@ class CartsController{
                 // TODO: check validation for user field()
                 $orderInfo = "имя: $user_name, телефон: $user_phone, email: $user_email";
                 $cartModel = new Cart();
-                $cartModel->addNewOrder($cart, $orderInfo); 
+                $cartModel->addNewOrderNoReg($cart, $orderInfo); 
                 setcookie('cart', '', 1, '/');
                 header('Location: ' . SITE_ROOT . 'products/list');
+
             }
             if (isset($_POST['products_to_orders'])){
-                // доделать подключение к бд и запись заказа
+                $cartModel = new Cart();
+                $cartModel->addNewOrderReg($cart);
+                setcookie('cart', '', 1, '/');
                 header('Location: ' . SITE_ROOT . 'products/list');
-
             }
             
             $prodoctIdList = array_keys($cart);

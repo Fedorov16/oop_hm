@@ -52,7 +52,7 @@ class UsersController{
                     'user_surname'=> $user_surname,
                     'user_phone' => $user_phone,
                     'user_email' => $user_email,
-                    'user_reg_date' => $user_reg_date
+                    'user_reg_date' => "$user_reg_date"
                 );
             $user->register($userInfo);
             header('Location: ' . SITE_ROOT . 'products/list');

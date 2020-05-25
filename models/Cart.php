@@ -2,26 +2,37 @@
 
 class Cart {
 
-    public function addNewOrder($cart, $orderInfo) {
+    public function addNewOrderNoReg($cart, $orderInfo) {
+        $order_date = Date('Y-m-d');
         $db = DB::connect();
-        $query = "
-            INSERT INTO `orders`
-                SET `order_info` = '$orderInfo';
-        ";
-        $result = $db->query($query);
-        $orderId = $db->lastInsertId();
-
-        $cartsInfo = ""; 
         foreach ($cart as $product_id => $product_count) {
-            $cartsInfo .= "($product_id, $orderId, $product_count), ";
+            $query = 
+            "INSERT INTO `orders`
+            SET `order_count`= '$product_count',
+                `order_product_id` = $product_id,
+                `order_date` = '$order_date',
+                `order_info` = '$orderInfo'
+            ";
+            $db->query($query);
         }
-        $cartsInfo = rtrim($cartsInfo, ', ');
-        $query = 
-        "INSERT INTO `carts` (cart_product_id, cart_order_id, cart_product_count)
-                VALUES $cartsInfo;
-        ";
-        $db->query($query);
         return;
     }
 
+    public function addNewOrderReg($cart) {
+        $order_date = Date('Y-m-d');
+        $userId = $_COOKIE['user_id'];
+        $db = DB::connect();
+
+        foreach ($cart as $product_id => $product_count) {
+        $query = 
+        "INSERT INTO `orders`
+        SET `order_count`= '$product_count',
+            `order_product_id` = $product_id,
+            `order_date` = '$order_date',
+            `order_user_id` = $userId
+        ";
+        $db->query($query);
+        }
+        return;
+    }
 }

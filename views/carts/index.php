@@ -35,7 +35,6 @@
                 </div>
                 <br><h4 class="price_all">Итого за выбранные товары <?= $price_all ?> руб.</h4>
                 <button type="submit" name='products_to_orders' class="btn btn-success">Заказать</button>
-                <a href="<?= SITE_ROOT . 'orders/add'; ?>">Заказать</a>
             </form>
 </section>
     <?php } ?>

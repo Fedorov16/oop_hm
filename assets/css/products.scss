@@ -11,7 +11,7 @@
   .product {
     margin-top: 20px;
     width: 210px;
-    height: 301px;
+    height: 310px;
     border: 1px solid #eaeaea;
   }
   
@@ -44,14 +44,16 @@
     }
   
     p {
-      margin: 5px 0;
+      margin: 0 0 5px;
       font-size: 14px;
       font-weight: 200;
       font-family: "Times New Roman", Arial, Helvetica, sans-serif;
       color: #acacac;
     }
   }
-  
+  .date_product{
+    margin: 0;
+  }
   .for_order {
     display: flex;
     justify-content: space-between;
@@ -65,15 +67,19 @@
     }
   }
   
-  .to_order_product > a {
+  .to_order_product {
     text-decoration: none;
     color: #FF8C00;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
   
     &:hover {
       color: #ff3c00;
       font-size: 18px;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+    &:active {
+      color: #000000;
+      font-size: 18px;
     }
   }
   
