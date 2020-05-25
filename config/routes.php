@@ -28,9 +28,6 @@
 
 		"CartsController" => array(
 			"cart" =>"index"
-		),
-		"OrdersController" => array(
-			"orders/add" => "add"
 		)
 		
 	);
