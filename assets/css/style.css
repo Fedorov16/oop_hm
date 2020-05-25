@@ -136,7 +136,9 @@ A:hover {
 .li_inline-block {
   display: inline-block;
 }
-
+.float_right{
+  float: right;
+}
 /*Body*/
 section {
   display: flex;

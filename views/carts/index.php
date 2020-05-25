@@ -2,9 +2,12 @@
     include_once('./views/templates/head.php');
     include_once('./views/templates/header.php'); ?>
 
-    <?php if($cart === ""):?>
+    <?php if($cart == ""){?>
+    <section>
     <h3>Ваша корзина пуста</h3>
-    <?php else: ?>
+    <a class="h3" href="<?=SITE_ROOT?>products/list">Хочу что-нибудь выбрать!</a>
+    </section>
+    <?php }else{ ?>
     <section>
         <h2>Список выбранных товаров</h2>
         
@@ -31,9 +34,9 @@
                     <?php } ?>
                 </div>
                 <br><h4 class="price_all">Итого за выбранные товары <?= $price_all ?> руб.</h4>
-                <button type="submit" class="btn btn-success">Заказать</button>
-                <a href="<?= SITE_ROOT . '/order/add'; ?>"></a>
+                <button type="submit" name='products_to_orders' class="btn btn-success">Заказать</button>
+                <a href="<?= SITE_ROOT . 'orders/add'; ?>">Заказать</a>
             </form>
 </section>
-    <?php endif; ?>
+    <?php } ?>
 <?php include_once('./views/templates/footer.php'); ?>

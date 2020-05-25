@@ -38,7 +38,16 @@
                 </li>
                  <li class="li_inline-block standart-border"><a href="#" class="category_top_text">Мастер классы</a></li>
                  <li class="li_inline-block standart-border"><a href="#" class="category_top_text">Акции</a></li>
-             </ul>
+
+                <?php if(!(User::checkIfUserAuthorized())) : ;?>
+                <li class="li_inline-block float_right"><a class="btn btn-info" href="<?=SITE_ROOT?>register">Регистрация</a></li>
+                <li class="li_inline-block float_right"><a class="btn btn-info" href="<?=SITE_ROOT?>auth">Авторизация</a></li>
+                <?php else : ;?>
+                <li class="li_inline-block float_right"><a class="btn btn-info" href="<?=SITE_ROOT?>out">Выход</a></li>
+                <?php endif; ?> 
+            </ul>
              
+            
+            
         </div>
      </header>

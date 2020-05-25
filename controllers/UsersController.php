@@ -83,15 +83,26 @@ class UsersController{
                 $user->auth($user_login);
                 header('Location: ' . SITE_ROOT . 'products/list');
             }
-            else{
-                echo '<pre>';
-                print_r($errors);
-                echo '</pre>';
-                exit();
-            }
+            // else{
+            //     echo '<pre>';
+            //     print_r($errors);
+            //     echo '</pre>';
+            //     exit();
+            // }
 
 
         }
         include_once('./views/users/auth.php');
+    }
+
+    public function out(){
+        if(isset($_COOKIE['token']) || isset($_COOKIE['user_id']) || isset($_COOKIE['token_time'])){
+            setcookie('token', $newToken, time() - 2*24*60*60, '/');
+            setcookie('token_time', $newTokenTime, time() - 2*24*60*60, '/');
+            setcookie('user_id', $userId, time() - 2*24*60*60, '/');
+            setcookie('cart', '', 1, '/');
+        }
+        session_destroy();
+        header('Location: ' . SITE_ROOT . 'products/list');
     }
 }

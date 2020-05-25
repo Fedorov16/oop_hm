@@ -22,7 +22,8 @@
 
 		"UsersController" => array(
 			"register" => "reg",
-			"auth" => "auth"
+			"auth" => "auth",
+			"out" => "out"
 		),
 
 		"CartsController" => array(

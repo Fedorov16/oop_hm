@@ -19,14 +19,19 @@ class CartsController{
                 setcookie('cart', '', 1, '/');
                 header('Location: ' . SITE_ROOT . 'products/list');
             }
+            if (isset($_POST['products_to_orders'])){
+                // доделать подключение к бд и запись заказа
+                header('Location: ' . SITE_ROOT . 'products/list');
+
+            }
             
             $prodoctIdList = array_keys($cart);
             $productModel = new Product();
             $productList = $productModel->getProductListForOrder($prodoctIdList);
             $price_all = 0;
-            
-            for($i=0; $i<count($productList); $i++){
-                $price_all += $productList[$i]['product_price'];
+
+            foreach($productList as $product){
+                $price_all += $product['product_price'] * $cart[$product['product_id']];
             }
             
         }
