@@ -9,8 +9,8 @@
     <?php } ?>
 
     <section>
-        <form method='POST'>
-            <label for="product_icon">Логотип(не настроено)</label><input type="file" name="product_icon"><br>
+        <form method='POST' enctype="multipart/form-data">
+            <label for="product_icon">Логотип</label><input type="file" name="product_icon"><br>
             <label for="product_name">Название</label><input type="text" name="product_name"><br>
             <label for="product_price">Цена</label><input type="text" name="product_price"><br>
             <label for="product_desc">Описание</label><textarea class="desc_area" name="product_desc"></textarea><br>

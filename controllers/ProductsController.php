@@ -11,9 +11,20 @@
 		}
 		
 		public function add() {
+			$title = 'Добавить продукт';
 			
 			if (isset($_POST['product_name'])){
-			$title = 'Добавить продукт';
+			
+				// upload picture
+			// echo '<pre>';
+			// var_dump($_FILES['product_icon']);
+			// echo '</pre>';
+			$name_img = $_FILES['product_icon']['name'];
+			$tmp_name = $_FILES['product_icon']['tmp_name'];
+			$path_to_img = FILE_ASSETS . 'img/product_icon/' . $name_img;
+			move_uploaded_file($tmp_name, $path_to_img);
+			
+
 			$helper = new Helper();
 			$product_name = $helper->SanitizeString($_POST['product_name']);
 			$product_price = $helper->SanitizeString($_POST['product_price']);
@@ -34,9 +45,11 @@
 					'product_name' => $product_name,
 					'product_price' => $product_price,
 					'product_category_id' => $product_category_id,
-					'product_desc' => $product_desc
+					'product_desc' => $product_desc,
+					'product_icon' => $path_to_img
 				);
-				$newProduct = $productModel->AddProduct();
+				$newProduct = $productModel->AddProduct($product);
+				
 				header('Location: ' . SITE_ROOT . 'products/list');
 			}
 			
