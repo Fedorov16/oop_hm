@@ -11,8 +11,9 @@
     <section class="container">
         <h1>Форма регистрации</h1>
         <form method="POST">
-            <input type="text" name='user_login' id="user_login" class="form-control" placeholder="Логин"
+            <input type="text" name='user_login' id="user_login" class="form-control user_login" placeholder="Логин"
             value="<?= isset($_POST['user_login']) ? $_POST['user_login'] : ""; ?>"><br>
+            <div type="text" id="login_helper"></div>
             <input type="text" name='user_name' id="user_name" class="form-control" placeholder="Ваше имя"
             value="<?= isset($_POST['user_name']) ? $_POST['user_name'] : ""; ?>"><br>
             <input type="text" name='user_surname' id="user_surname" class="form-control" placeholder="Ваша Фамилия"

@@ -22,6 +22,7 @@
 
 		"UsersController" => array(
 			"register" => "reg",
+			"ajax/check_if_login_exists" => "ajaxCheckIfLoginExists",
 			"auth" => "auth",
 			"out" => "out"
 		),

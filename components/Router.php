@@ -13,7 +13,8 @@
 			// 1) Получаем url, который ввел пользователь. 
 			// 2) Находим соответствие url пользователя и controller/action; 
 			// 3) Вызываем этот action 
-			$userUrl = $_SERVER['REQUEST_URI'];
+			$userUrl = explode('?', $_SERVER['REQUEST_URI'])[0];
+
 			foreach ($this->routes as $controller => $patterns) {
 				foreach ($patterns as $pattern => $parametrizedAction) {
 					$pattern = ROOT . $pattern;

@@ -105,4 +105,12 @@ class UsersController{
         session_destroy();
         header('Location: ' . SITE_ROOT . 'products/list');
     }
+
+    public function ajaxCheckIfLoginExists(){
+        if(isset($_GET['user_login'])){
+            $user_login = $_GET['user_login'];
+            $user = new User();
+            echo $user->checkIfLoginExists($user_login);
+        }
+    }
 }

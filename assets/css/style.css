@@ -141,6 +141,16 @@ A:hover {
   float: right;
 }
 
+.outline_green {
+  border: 2px solid rgba(0, 170, 0, 0.856);
+  box-shadow: 0 0 5px rgba(0, 248, 0, 0.712);
+}
+
+.outline_red {
+  border: 2px solid rgba(255, 44, 44, 0.883);
+  box-shadow: 0 0 5px rgba(199, 18, 18, 0.712);
+}
+
 /*Body*/
 section {
   display: flex;
