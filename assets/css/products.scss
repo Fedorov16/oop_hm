@@ -10,29 +10,34 @@
   
   .product {
     margin-top: 20px;
+    margin-right: 20px;
     width: 210px;
     height: 310px;
     border: 1px solid #eaeaea;
   }
   
   .product_header {
-    background-image: url(../img/product1.png);
+    position: relative;
     width: 210px;
     height: 210px;
   }
   
+
+
+
   .logo_heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     width: 30px;
     height: 30px;
-    float: right;
-    margin-top: 10px;
-    margin-right: 10px;
     transition: all 0.3s ease-in-out;
   
     &:hover {
       width: 32px;
       height: 32px;
       transition: all 0.3s ease-in-out;
+      color: red;
     }
   }
   

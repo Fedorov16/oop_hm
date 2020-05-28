@@ -4,6 +4,7 @@
 
 		public function index() {
 			$title = 'Продукты';
+			$header = new Header();
 			$productModel = new Product();
 			$products = $productModel->getAll();
 			include_once('./views/products/product.php');
@@ -14,22 +15,24 @@
 			$title = 'Добавить продукт';
 			
 			if (isset($_POST['product_name'])){
-			
-				// upload picture
-			// echo '<pre>';
-			// var_dump($_FILES['product_icon']);
-			// echo '</pre>';
-			$name_img = $_FILES['product_icon']['name'];
-			$tmp_name = $_FILES['product_icon']['tmp_name'];
-			$path_to_img = FILE_ASSETS . 'img/product_icon/' . $name_img;
-			move_uploaded_file($tmp_name, $path_to_img);
-			
 
 			$helper = new Helper();
 			$product_name = $helper->SanitizeString($_POST['product_name']);
 			$product_price = $helper->SanitizeString($_POST['product_price']);
 			$product_desc = $helper->SanitizeString($_POST['product_desc']);
 			$product_category_id = $_POST['product_category_id'];
+			
+			// upload picture
+			$dirPath = FILE_ASSETS . "img/product_icon/dir" . $product_category_id;
+			if (!file_exists($dirPath)) {
+				mkdir($dirPath);
+			} 
+			$name_img = $_FILES['product_icon']['name'];
+			$tmp_name = $_FILES['product_icon']['tmp_name'];
+			$path_to_img = FILE_ASSETS . "img/product_icon/dir" . $product_category_id . "/" . $name_img;
+			move_uploaded_file($tmp_name, $path_to_img);
+			$path_to_img_cut = $product_category_id . "/" . $name_img;
+
 			$validation = new Validation();
 				$errors = [];
 			if($validation->checkLenght($product_name, 2, 40)){
@@ -46,13 +49,13 @@
 					'product_price' => $product_price,
 					'product_category_id' => $product_category_id,
 					'product_desc' => $product_desc,
-					'product_icon' => $path_to_img
+					'product_icon' => $path_to_img_cut
 				);
 				$newProduct = $productModel->AddProduct($product);
 				
 				header('Location: ' . SITE_ROOT . 'products/list');
 			}
-			
+	
 		}	
 			$categoryModel = new Category();
 			$category_name = $categoryModel->getAll();
@@ -93,10 +96,22 @@
 					$product_price = $helper->SanitizeString($_POST['product_price']);
 					$product_desc = $helper->SanitizeString($_POST['product_desc']);
 					$product_category_id = $_POST['product_category_id'];
+
+					// update picture
+					$dirPath = FILE_ASSETS . "img/product_icon/dir" . $product_category_id;
+					if (!file_exists($dirPath)) {
+						mkdir($dirPath);
+					} 
+					$name_img = $_FILES['product_icon']['name'];
+					$tmp_name = $_FILES['product_icon']['tmp_name'];
+					$path_to_img = FILE_ASSETS . "img/product_icon/dir" . $product_category_id . "/" . $name_img;
+					move_uploaded_file($tmp_name, $path_to_img);
+					$path_to_img_cut = $product_category_id . "/" . $name_img;
+
 					$validation = new Validation();
 					$errors = [];
-					if(!$validation->checkLenght($product_name)){
-						$errors[] = 'Количество символов для названия не должно быть меньше 2-х'; 
+					if($validation->checkLenght($product_name, 2, 40)){
+						$errors[] = 'Количество символов для названия не должно быть меньше 3-х'; 
 					}
 					if(!$validation->checkNumber($product_price, 99999, 25)){
 						$errors[] = 'Цена не менее 25 и не более 99 999';
@@ -110,7 +125,8 @@
 							'product_price' => $product_price,
 							'product_category_id' => $product_category_id,
 							'product_desc' => $product_desc,
-							'product_id' => $id
+							'product_id' => $id,
+							'product_icon' => $path_to_img_cut
 						);
 						$productModel->updateProduct($product);
 						header('Location: ' . SITE_ROOT . 'products/list');

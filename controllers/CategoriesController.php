@@ -18,17 +18,19 @@ class CategoriesController{
         return;
     }
 
-//Переделать. Оставить только название категории, количество товаров. Кнопку редактировать и удалить. и вернуться 
     public function view($parameters=[]){
         $id = $parameters[0];
         if(!$id){
             echo 'Некорректный id';
         }
         else{
+            //Получили категорию. Подключили и передали имя для хэдера.
             $categoryModel = new Category();
             $category = $categoryModel->getCategoryById($id);
-            print_r($category);
             $title = $category['category_name'];
+            $header = new Header($title);
+            $productModel = new Product();
+			$products = $productModel->getProductByCategory($id);
             include_once('./views/categories/category_view.php');
         }
         return;

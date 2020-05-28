@@ -11,7 +11,7 @@
     <div class="container">
         <h1>Форма авторизации</h1>
         <form method="POST">
-            <input type="text" name='user_login' id="user_login" class="form-control" placeholder="Логин"
+            <input type="text" name='user_login' id="user_login_auth" class="form-control" placeholder="Логин"
             value="<?= isset($_POST['user_login']) ? $_POST['user_login'] : ""; ?>"><br>
             <input type="password" name='user_pass' id="user_pass" class="form-control" placeholder="Введите пароль"><br>
             <button class="btn btn-success" type="submit">Авторизироваться</button><br><br>

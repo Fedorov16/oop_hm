@@ -22,6 +22,17 @@ class Category
 			// 	return $category_add;
 			// }
 		}
+
+		public function getCategoryById($id){
+
+			$category_query = DB::connect();
+			$query=(new Select('categories'))
+				->where ("WHERE category_id = '$id'")
+				->build();
+			$getCategoryById = $category_query->query($query);
+			$result = $getCategoryById->fetch();
+			return $result;
+		}
 	}
 ?>
 	

@@ -2,7 +2,6 @@
 
 final class DB
 {
-    // private $link;
     private static $connection;
 
     private function __construct(){

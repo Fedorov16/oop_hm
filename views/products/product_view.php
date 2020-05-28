@@ -8,7 +8,7 @@
         <div class="product_view_main">
         <?php ?>
             <div class="img_slider">
-                <img src="../../assets/img/product_icon/scarf.jpg" alt="" class='img_slider_img'>
+                <img src="<?= IMG . "product_icon/dir" . $product_icon ?>" alt="" class='img_slider_img'>
             </div>
             <p class="product_view_desc"><?= $product_desc?></p>
             <a href="<?= SITE_ROOT . 'products/edit/' . $product_id ?>" class="btn btn-primary">Редактировать</a>

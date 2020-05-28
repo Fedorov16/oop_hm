@@ -1,10 +1,9 @@
- <?php //include_once('./views/templates/head.php');
-    //include_once('./views/templates/header.php');?>
+
 <section>
-    <div class="banner_section">
-        <h2>Текст банера</h2>
-        <img src="<?= IMG ?>fon/img1.jpg" alt="fon">
-    </div>
+    
+        <h2>Продукты категории</h2>
+        <h2><?=$category['category_name']?></h2>
+       
     <div class="products">
     <?php foreach($products as $product){extract($product, EXTR_OVERWRITE) ?>
         <div class="product">
@@ -24,7 +23,4 @@
         </div>
         <?php } ?>
     </div>
-    </br><h2><a href="<?= SITE_ROOT . 'products/add'?>">Добавить продукт</a></h2>
-    </br><h2><a href="<?= SITE_ROOT . 'categories/list'?>">Просмотр категорий</a></h2>
 </section>
-<?php include_once('./views/templates/footer.php'); ?>

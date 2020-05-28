@@ -12,6 +12,16 @@
 			$result = $get_products->fetchAll();
 			return $result;
 		}
+		public function getProductByCategory($id){
+			$products_query = DB::connect();
+			$query=(new Select('products'))
+				->joins([['LEFT', 'categories', 'product_category_id', 'category_id']])
+				->where("WHERE `product_is_deleted` = 0 AND product_category_id = '$id'")
+				-> build();
+			$get_products = $products_query->query($query);
+			$result = $get_products->fetchAll();
+			return $result;
+		}
 		
 		public function getProductById($id){
 			$product_query = DB::connect();
@@ -32,7 +42,8 @@
 							'product_desc' => $_POST['product_desc'],
 							'product_price' => $_POST['product_price'],
 							'product_category_id' => $_POST['product_category_id'],
-							'product_date' => $product_date
+							'product_date' => $product_date,
+							'product_icon' => $product['product_icon']
 							])
 					->where("product_id = $product[product_id]")
 					->build();

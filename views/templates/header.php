@@ -27,13 +27,9 @@
              <ul class="category_top">
                  <li class="li_inline-block li_dropdown standart-border"><a href="#" class="category_top_text">Каталог товаров</a>
                     <ul class="category_footer display_none">
-                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Мужская одежда</a></li>
-                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Женская одежда</a></li>
-                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Детская одежда</a></li>
-                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Товары для детей</a></li>
-                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Бижутерия</a></li>
-                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Красота и здоровье</a></li>
-                        <li class="li_block standart-border"><a href="#" class="category_footer_text">Аксесуары</a></li>
+                    <?php foreach($categories as $category){extract($category, EXTR_OVERWRITE) ?>
+                        <li class="li_block standart-border"><a href="<?=SITE_ROOT . 'categories/view/' . $category_id?>" class="category_footer_text"><?=$category_name?></a></li>
+                    <?php } ?>    
                     </ul>
                 </li>
                  <li class="li_inline-block standart-border"><a href="#" class="category_top_text">Мастер классы</a></li>

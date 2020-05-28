@@ -9,7 +9,8 @@
     <?php } ?>
 
     <section>
-        <form method='POST'>
+        <form method='POST' enctype="multipart/form-data">
+            <label for="product_icon">Логотип</label><input type="file" name="product_icon"><br>
             <label for="product_name">Название</label><input type="text" name="product_name" 
             value="<?= isset($_POST['product_name']) ? $_POST['product_name'] : $product['product_name']; ?>"><br>
             <label for="product_price">Цена</label><input type="text" name="product_price" 

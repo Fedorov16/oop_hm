@@ -95,7 +95,6 @@ body {
 }
 
 .standart-border {
-  padding: 5px;
   background-color: #fff;
   margin: 0 10px 5px 0;
   border: 1px solid black;
@@ -109,10 +108,16 @@ body {
 
 .category_top_text {
   font-size: 1.2em;
+  display: block;
+  height: 100%;
+  padding: 5px;
 }
 
 .category_footer_text {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  display: block;
+  height: 100%;
+  padding: 5px;
 }
 
 /* Работа со списками */
@@ -258,29 +263,31 @@ footer > div {
 
 .product {
   margin-top: 20px;
+  margin-right: 20px;
   width: 210px;
   height: 310px;
   border: 1px solid #eaeaea;
 }
 
 .product_header {
-  background-image: url(../img/product1.png);
+  position: relative;
   width: 210px;
   height: 210px;
 }
 
 .logo_heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   width: 30px;
   height: 30px;
-  float: right;
-  margin-top: 10px;
-  margin-right: 10px;
   transition: all 0.3s ease-in-out;
 }
 .logo_heart:hover {
   width: 32px;
   height: 32px;
   transition: all 0.3s ease-in-out;
+  color: red;
 }
 
 .desc_product > h2 {
