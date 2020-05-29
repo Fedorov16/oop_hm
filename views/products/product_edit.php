@@ -1,6 +1,5 @@
-<?php include_once('./views/templates/head.php');
-    include_once('./views/templates/header.php');
-    if(isset($errors) && !empty($errors)){  ?>
+<?php
+ if(isset($errors) && !empty($errors)){  ?>
         <div>
             <?php foreach($errors as $error){?>
                 <p><?= $error ?></p>

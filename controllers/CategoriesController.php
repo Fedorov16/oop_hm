@@ -4,6 +4,7 @@ class CategoriesController{
 
     public function index() {
         $title = 'Категории';
+        $header = new Header($title);
         $categoryModel = new Category();
         $categories = $categoryModel->getAll();
         include_once('./views/categories/category.php');
@@ -12,6 +13,7 @@ class CategoriesController{
 
     public function add() {
         $title = 'Категории';
+        $header = new Header($title);
         $categoryModel = new Category();
         include_once('./views/categories/category.php');
         $add = $categoryModel->addCategory();

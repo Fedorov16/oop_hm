@@ -13,7 +13,7 @@
 		
 		public function add() {
 			$title = 'Добавить продукт';
-			
+			$header = new Header();
 			if (isset($_POST['product_name'])){
 
 			$helper = new Helper();
@@ -73,12 +73,11 @@
 			else{
 				$productModel = new Product();
 				$product = $productModel->getProductById($id);
-				// print_r($product);
-				// $title = $product['product_name'];
+				$title = $product['product_name'];
+				$header = new Header($title);
 				include_once('./views/products/product_view.php');
 				// echo 'Вызван action с параметром id = ' . $id;
 			}
-			// print_r($parameters);
 			return;
 		}
 
@@ -142,6 +141,7 @@
 						exit();
 					}
 					$title = "Изм. &laquo;" . $product['product_name'] . "&raquo;";
+					$header = new Header($title);
 					include_once('./views/products/product_edit.php');
 			}
 		

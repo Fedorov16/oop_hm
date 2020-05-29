@@ -1,6 +1,4 @@
-<?php include_once('./views/templates/head.php');
-    include_once('./views/templates/header.php');
-    extract($product, EXTR_OVERWRITE);?>
+<?php extract($product, EXTR_OVERWRITE);?>
 <section>
     
     <div class="product_view">
@@ -12,7 +10,7 @@
             </div>
             <p class="product_view_desc"><?= $product_desc?></p>
             <a href="<?= SITE_ROOT . 'products/edit/' . $product_id ?>" class="btn btn-primary">Редактировать</a>
-            <a class="btn btn-primary" onclick="deleteBook(<?= $product['product_id']; ?>, '<?= SITE_ROOT; ?>')">Удалить продукт</a>
+            <a class="btn btn-primary" onclick="deleteBook(<?= $product_id ?>, '<?= SITE_ROOT; ?>')">Удалить продукт</a>
         </div>
         <div class="product_right_bar">
             <p class="product_right_price">Цена <?= $product_price ?> руб</p> 

@@ -1,5 +1,4 @@
- <?php //include_once('./views/templates/head.php');
-    //include_once('./views/templates/header.php');?>
+
 <section>
     <div class="banner_section">
         <h2>Текст банера</h2>

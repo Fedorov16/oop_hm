@@ -1,6 +1,3 @@
-<?php
- include_once('./views/templates/head.php');
- include_once('./views/templates/header.php');?>
 
 <section class='category'>
     <div class="category_content">

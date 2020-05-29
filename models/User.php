@@ -154,6 +154,7 @@
 						`connect_token_time` = FROM_UNIXTIME($newTokenTime)
 					WHERE `connect_id` = $connectId;
 					";
+					$db->query($query);
 				}
 				return true;
 			}
