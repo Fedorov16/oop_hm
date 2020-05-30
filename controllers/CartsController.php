@@ -3,8 +3,6 @@
 class CartsController{
 
     public function index() {
-        $title = 'Корзина';
-        $header = new Header($title);
         $cartString = isset($_COOKIE['cart']) ? $_COOKIE['cart'] : ""; 
         if ($cartString !== "") {
             $cart = json_decode($cartString, true);
@@ -39,7 +37,8 @@ class CartsController{
             }
             
         }
-        
+        $title = 'Корзина';
+        $header = new Header($title);
         include_once('./views/carts/index.php');
     }
 }

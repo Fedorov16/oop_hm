@@ -11,8 +11,6 @@ class NewsController
     }
 
     public function add(){
-        $title = 'Добавить';
-        $header = new Header($title);
         
         if(isset($_POST['news_name'])){
             $helper = new Helper();
@@ -30,12 +28,24 @@ class NewsController
 			}
 			if(empty($errors)){
             
-                // дописать
+                $newsModel = new News();
+				// TODO: use PHP function
+				$news = array(
+					'news_name' => $news_name,
+					'news_body' => $news_body,
+					
+				);
+				$newNews = $newsModel->AddNews($news);
+				
+				header('Location: ' . SITE_ROOT . 'news/list');
 
             }
         }
+        $title = 'Добавить';
+        $header = new Header($title);
         include_once('./views/news/news_add.php');
         return;
     }
 
 }
+

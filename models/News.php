@@ -13,13 +13,18 @@ Class News
         return $result;
     }
 
-    // public function AddNews(){
+    public function AddNews(){
+        $date = Date('Y-m-d');
+        $db = DB::connect();
+        $query =(new InsertInto('news'))
+        ->set([ 'news_name' => $_POST['news_name'],
+                'news_body' => $_POST['news_body'],
+                // 'news_icon' => $_POST['news_icon'],
+                'news_date' => $date
+                ])
+        ->build();
+        $newNews = $db->query($query);
         
-    //     $db = DB::connect();
-    //     $query =
-    //     ->what("news_name" => $_POST('news_name'),
-    //             "news_body" => $_POST('news_body'),
-    //             "news_icon" => $_POST('news_icon') 
-    // );
-    // }
+        return;
+    }
 }
