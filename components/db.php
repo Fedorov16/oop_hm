@@ -22,18 +22,5 @@ final class DB
     private function __wakeup(){}
 
 
-    //куки//надо перенести эти блоки
-    public function cookie_visit(){
-        if(isset ($_COOKIE['page_visit'])){
-            //не забыть про время куки
-            setcookie('page_visit', ++$_COOKIE['page_visit'], time() + 5);  
-        } else{
-            setcookie('page_visit', 1, time() + 5);
-            $_COOKIE['page_visit'] = 1;  
-        }
-    }
-    //Сессия
-    public function cookie_session(){
-        session_start();
-    }
+    
 }

@@ -29,6 +29,14 @@
 
 		"CartsController" => array(
 			"cart" =>"index"
+		),
+
+		"NewsController" => array(
+			"news/list" => "index"
+		),
+
+		"NewsProxyController" => array(
+			"news/add" => "add"
 		)
-		
+
 	);
