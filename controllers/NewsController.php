@@ -16,7 +16,6 @@ class NewsController
             $helper = new Helper();
             $news_name = $helper->SanitizeString($_POST['news_name']);
             $news_body = $helper->SanitizeString($_POST['news_body']);
-            $numberDate = Date('n');
 
             $validation = new Validation();
 				$errors = [];

@@ -35,15 +35,13 @@
 		}
 
 		public function updateProduct($product){
-			$product_date = Date('Y-m-d');
 			$product_query = DB::connect();
 			$query = (new Update('products'))
 					->set([	'product_name' => $_POST['product_name'],
 							'product_desc' => $_POST['product_desc'],
 							'product_price' => $_POST['product_price'],
 							'product_category_id' => $_POST['product_category_id'],
-							'product_date' => $product_date,
-							'product_icon' => $product['product_icon']
+							'product_icon' => $product['product_icon'],
 							])
 					->where("product_id = $product[product_id]")
 					->build();
@@ -52,15 +50,13 @@
 		}
 
 		public function AddProduct($product){
-			$product_date = Date('Y-m-d');
 			$product_query = DB::connect();
 			$query = (new InsertInto('products'))
 			->set([	'product_name' => $_POST['product_name'],
 					'product_desc' => $_POST['product_desc'],
 					'product_price' => $_POST['product_price'],
 					'product_category_id' => $_POST['product_category_id'],
-					'product_date' => $product_date,
-					'product_icon' => $product['product_icon']
+					'product_icon' => $product['product_icon'],
 					])
 			->build();
 			$NewProducts = $product_query->query($query);

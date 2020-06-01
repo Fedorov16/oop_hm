@@ -8,7 +8,7 @@
                 <div class="article_desc">
                     <h2 class="article_name"><a href="<?= SITE_ROOT . 'news/view/' . $news_id?>"><?= $news_name ?></a></h2>
                     <p class="article_body"> <?= $news_body ?> </p>
-                    <p class="article_date">11 мая 16:40</p>
+                    <p class="article_date"><?php $date = new DateTime($news_date);?><?= $date->format('d.m.Y');?> в <?= $date->format('G:i')?> </p>
                 </div>
             </div>
         <?php } ?>

@@ -14,7 +14,7 @@
             <div class="desc_product">
                 <h2 class="name_product"><a href="<?= SITE_ROOT . 'products/view/' . $product_id?>"><?= $product_name ?></a></h2>
                 <p class="category_product"> <?= $category_name ?> </p>
-                <p class="date_product">11 мая 16:40</p>
+                <p class="date_product"><?php $date = new DateTime($product_date);?><?= $date->format('d.m.Y');?> в <?= $date->format('G:i')?> </p>
                 <div class="for_order">
                     <p class="price_product"><?= $product_price ?></p>
                     <a href="javascript:void(0)" class="to_order_product" onclick="addToCart(<?= $product['product_id']; ?>)">В корзину</a>

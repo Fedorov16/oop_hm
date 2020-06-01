@@ -2,7 +2,7 @@
 
 	class ProductsController{
 
-		public function index() {
+		public function index(){ 
 			$title = 'Продукты';
 			$header = new Header();
 			$productModel = new Product();
@@ -12,8 +12,7 @@
 		}
 		
 		public function add() {
-			$title = 'Добавить продукт';
-			$header = new Header();
+			
 			if (isset($_POST['product_name'])){
 
 			$helper = new Helper();
@@ -56,7 +55,8 @@
 				header('Location: ' . SITE_ROOT . 'products/list');
 			}
 	
-		}	
+		}	$title = 'Добавить продукт';
+			$header = new Header();
 			$categoryModel = new Category();
 			$category_name = $categoryModel->getAll();
 			include_once('./views/products/product_add.php');

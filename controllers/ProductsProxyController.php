@@ -2,7 +2,7 @@
 
 class ProductsProxyController{
 
-    private $controller;
+    private ProductsController $controller;
 
     public function __construct(){
         $this->controller = new ProductsController();

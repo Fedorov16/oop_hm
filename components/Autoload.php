@@ -2,11 +2,11 @@
 
     spl_autoload_register(function($className){
 
-        $arrDirectories = array(
+        $arrDirectories = [
             'components/',
             'controllers/',
-            'models/'
-        );
+            'models/',
+        ];
 
         foreach($arrDirectories as $directory){
 
