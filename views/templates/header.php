@@ -33,7 +33,7 @@
                     </ul>
                 </li>
                  <li class="li_inline-block standart-border"><a href="<?=SITE_ROOT . 'news/list'?>" class="category_top_text">Мастер классы</a></li>
-                 <li class="li_inline-block standart-border"><a href="#" class="category_top_text">Акции</a></li>
+                 <li class="li_inline-block standart-border"><a href="<?=SITE_ROOT . 'products/sale'?>" class="category_top_text">Акции</a></li>
 
                 <?php if(!(User::checkIfUserAuthorized())) : ;?>
                 <li class="li_inline-block float_right"><a class="btn btn-info" href="<?=SITE_ROOT?>register">Регистрация</a></li>

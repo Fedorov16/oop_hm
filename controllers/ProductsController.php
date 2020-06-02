@@ -10,6 +10,14 @@
 			include_once('./views/products/product.php');
 			return;
 		}
+		public function indexSale(){ 
+			$title = 'Акции';
+			$header = new Header();
+			$productModel = new Product();
+			$products = $productModel->getAllSale();
+			include_once('./views/products/product_sale.php');
+			return;
+		}
 		
 		public function add() {
 			

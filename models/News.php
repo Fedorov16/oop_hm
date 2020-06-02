@@ -13,12 +13,12 @@ Class News
         return $result;
     }
 
-    public function AddNews(){
+    public function AddNews($news){
         $db = DB::connect();
         $query =(new InsertInto('news'))
         ->set([ 'news_name' => $_POST['news_name'],
                 'news_body' => $_POST['news_body'],
-                // 'news_icon' => $_POST['news_icon'],
+                'news_icon' => $news['news_icon'],
                 ])
         ->build();
         $newNews = $db->query($query);

@@ -12,6 +12,16 @@
 			$result = $get_products->fetchAll();
 			return $result;
 		}
+		public function getAllSale() {
+			$products_query = DB::connect();
+			$query=(new Select('products'))
+				->joins([['LEFT', 'categories', 'product_category_id', 'category_id']])
+				->where('WHERE `product_is_deleted` = 0 AND `product_is_sale` = 1')
+				-> build();
+			$get_products = $products_query->query($query);
+			$result = $get_products->fetchAll();
+			return $result;
+		}
 		public function getProductByCategory($id){
 			$products_query = DB::connect();
 			$query=(new Select('products'))

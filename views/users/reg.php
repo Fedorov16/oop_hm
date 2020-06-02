@@ -22,7 +22,7 @@
             value="<?= isset($_POST['user_pass']) ? $_POST['user_pass'] : ""; ?>"><br>
             <input type="password" name='user_pass2' id="user_password2" class="form-control" placeholder="Повторите пароль"
             value="<?= isset($_POST['user_pass2']) ? $_POST['user_pass2'] : ""; ?>"><br>
-            <input type="text" name='user_phone' id="user_phone" class="form-control" placeholder="Номер телефона"
+            <input type="tel" name='user_phone' id="user_phone" class="form-control" placeholder="Номер телефона"
             value="<?= isset($_POST['user_phone']) ? $_POST['user_phone'] : ""; ?>"><br>
             <input type="text" name='user_email' id="user_email" class="form-control" placeholder="Email"
             value="<?= isset($_POST['user_email']) ? $_POST['user_email'] : ""; ?>"><br>
