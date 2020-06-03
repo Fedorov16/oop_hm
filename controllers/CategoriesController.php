@@ -12,12 +12,18 @@ class CategoriesController{
     }
 
     public function add() {
-        $title = 'Категории';
-        $header = new Header($title);
-        $categoryModel = new Category();
-        include_once('./views/categories/category.php');
-        $add = $categoryModel->addCategory();
-        return;
+        // $categoryModel = new Category();
+        if(isset($_GET['category_name'])){
+            $category_name = $_GET['category_name'];
+            $db = DB::connect();
+            $query = 'INSERT INTO `categories` (category_name) VALUES (:category_name)';
+            $sth = $db->prepare($query);
+            $result = $sth-> execute([
+                'category_name' => $category_name
+                ]);
+            }
+        // $add = $categoryModel->addCategory();
+        
     }
 
     public function view($parameters=[]){

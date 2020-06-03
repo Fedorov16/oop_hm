@@ -7,9 +7,19 @@ class Category
 			$get_categories = $categories_query->query(
 			"SELECT category_id, category_name FROM `categories` ORDER BY category_id");
 			return $get_categories;
-        }
-        
+		}
 		public function addCategory(){
+			if(isset($_POST['category_name'])){
+				$category_name = $_POST['category_name'];
+				$db = DB::connect();
+				$query = 'INSERT INTO `categories` (category_name) VALUES (:category_name)';
+				$sth = $db->prepare($query);
+				$result = $sth-> execute([
+					'category_name' => $category_name
+					]);
+				}
+		}
+		// public function addCategory(){
 
 			// if(isset($_POST['category_name'])){
 			// 	$category_name = $_POST['category_name'];
@@ -21,7 +31,7 @@ class Category
 			// 	print_r ($category_add);
 			// 	return $category_add;
 			// }
-		}
+		// }
 
 		public function getCategoryById($id){
 

@@ -1,11 +1,15 @@
 'use strict';
 
-// кнопки категорий
-$('button.category_btn_review').on('click', function(){
-    $('.category_btn_review').addClass('display_none');
-    $('.category_name').removeClass('display_none');
-    $('.category_btn_add').removeClass('display_none');
-})
+//Подключаем js
+function include(url) {
+	let script = document.createElement('script');
+	script.src = url;
+	document.getElementsByTagName('head')[0].appendChild(script);
+}
+include('http://localhost/oop_hm/assets/js/category.js');
+include('http://localhost/oop_hm/assets/js/products.js');
+include('http://localhost/oop_hm/assets/js/news.js');
+
 
 //выпадающее меню навигатора
 
@@ -13,26 +17,6 @@ $('.li_dropdown').on('click', function(){
     $('.category_footer').toggleClass('display_none');
 });
 
-//удаление продукта
-function deleteBook(id, site_root) {
-	if (confirm('Вы действительно хотите удалить этот продукт?')) {
-		window.location.href = `${site_root}products/delete/${id}`; 
-	} 
-}
-
-//куки для корзины
-function addToCart(id) {
-	let cart = (getCookie('cart') === "") ? {} : JSON.parse(getCookie('cart'));
-	if (cart.hasOwnProperty(id)) {
-		cart[id]++;
-	} else {
-		cart[id] = 1;
-	}
-	setCookie('cart', JSON.stringify(cart), {
-		'expires': 2*24*60*60,
-		'path': '/'
-	});
-}
 
 //Регулярка по регистрации
 let user_login = $('#user_login'),
@@ -95,49 +79,8 @@ user_phone.on("focusout", () =>{
 	}
 });
 
-//Новости
-
-let article_body = $('.article_body'),
-	article_body_val = $('.article_body').val(),
-	article_body_input = $('.article_body_input');
-
-	article_body.on('dblclick', function(){
-		console.log('click');
-		article_body_input.innerHTML = 'article_body_val';
-
-	});
 
 
 
-
-
-
-
-
-// let user_login = $('#user_login');
-// user_login.on("focusout", () =>{
-// 	let user_login_val = user_login.val();
-// 	// console.log(user_login);
-// 	$.ajax({
-// 		url: `./ajax/check_if_login_exists?user_login=${user_login_val}`,
-// 		success: function(response){
-// 			if(response || (user_login_val =='')){
-// 				user_login.addClass('outline_red');
-// 				user_login.removeClass('outline_green');
-// 			}
-// 			else if(user_login_val.length < 5){
-// 				user_login.addClass('outline_red');
-// 				user_login.removeClass('outline_green');
-// 			}
-// 			else{
-// 				user_login.addClass('outline_green');
-// 				user_login.removeClass('outline_red');
-// 			}
-// 		},
-// 		error:function(error){
-// 			console.log(error);
-// 		}
-// 	})
-// });
 
 
