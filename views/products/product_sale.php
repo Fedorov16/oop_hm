@@ -1,6 +1,13 @@
 
 <section>
-    <h1>Скидки</h1>
+    <h1>До конца акции осталось</h1>
+    <div class="timer-numbers" id="timer">
+			<span class="hours">18</span>
+			<span>:</span>
+			<span class="minutes">20</span>
+			<span>:</span>
+			<span class="seconds">11</span>
+	</div>
     <div class="products">
     <?php foreach($products as $product){extract($product, EXTR_OVERWRITE) ?>
         <div class="product">

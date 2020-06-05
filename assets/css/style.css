@@ -352,6 +352,12 @@ footer > div {
   min-height: 150px;
 }
 
+.timer-numbers {
+  font-size: 90px;
+  color: 44, 39, 39, 0.555;
+  text-align: center;
+}
+
 .display_none {
   display: none;
 }
