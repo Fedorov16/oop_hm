@@ -71,27 +71,41 @@
 			->build();
 			$NewProducts = $product_query->query($query);
 			return;
-	}
-	public function deleteProduct($id){
+		}
 
-		$product_query = DB::connect();
-		$query = (new Update('products'))
-				->set(['product_is_deleted' => 1])
-				->where("product_id = $id")
-				->build();
-		$DeleteProduct = $product_query->query($query);
-		// print_r($query);
-		return;
-	}
-	public function getProductListForOrder($idList = []) {
-		$db = DB::connect();
-		$ids = implode(', ', $idList);
-		$query = (new Select('products'))
-					->where("WHERE `product_id` IN ($ids)")
+		public function AddSaleProduct($product){
+			$product_query = DB::connect();
+			$query = (new Update('products'))
+			->set(['product_old_price' => $_POST['product_old_price'],
+					'product_price' => $_POST['product_price'],
+					'product_is_sale' => 1,
+					])
+			->where("product_id = $product[product_id]")
+			->build();
+			$Sale_product = $product_query->query($query);
+			return;
+		}
+
+		public function deleteProduct($id){
+			$product_query = DB::connect();
+			$query = (new Update('products'))
+					->set(['product_is_deleted' => 1])
+					->where("product_id = $id")
 					->build();
+			$DeleteProduct = $product_query->query($query);
+			// print_r($query);
+			return;
+		}
 
-		$result = $db->query($query); 
-		$products = $result->fetchAll();
-		return $products;
-	}
+		public function getProductListForOrder($idList = []) {
+			$db = DB::connect();
+			$ids = implode(', ', $idList);
+			$query = (new Select('products'))
+						->where("WHERE `product_id` IN ($ids)")
+						->build();
+
+			$result = $db->query($query); 
+			$products = $result->fetchAll();
+			return $products;
+		}
 }

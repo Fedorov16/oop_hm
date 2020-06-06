@@ -40,11 +40,11 @@ class NewsController
             
                 $newsModel = new News();
 				// TODO: use PHP function
-				$news = array(
+				$news = [
 					'news_name' => $news_name,
 					'news_body' => $news_body,
 					'news_icon' => $path_to_img_cut,
-				);
+                ];
 				$newNews = $newsModel->AddNews($news);
 				
 				header('Location: ' . SITE_ROOT . 'news/list');

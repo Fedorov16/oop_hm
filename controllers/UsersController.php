@@ -45,7 +45,7 @@ class UsersController{
                 $errors[] = "Недопустимая длина пароля";
             }
             if (empty($errors)) {
-                $userInfo = array(
+                $userInfo = [
                     'user_login' => $user_login,
                     'user_password' => $user_password,
                     'user_name' => $user_name,
@@ -53,7 +53,7 @@ class UsersController{
                     'user_phone' => $user_phone,
                     'user_email' => $user_email,
                     'user_reg_date' => "$user_reg_date"
-                );
+                ];
             $user->register($userInfo);
             header('Location: ' . SITE_ROOT . 'products/list');
             }

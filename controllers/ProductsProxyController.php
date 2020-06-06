@@ -34,6 +34,15 @@ class ProductsProxyController{
         }
     }
 
+    public function addSale($parameters = []){
+        if(User::checkIfUserAuthorized()){
+            $this->controller->addSale($parameters);
+        } else{
+            echo "У вас недостаточно прав для просмотра данной страницы";
+            return;
+        }
+    }
+
 
 
 }

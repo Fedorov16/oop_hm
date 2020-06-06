@@ -7,7 +7,7 @@ final class DB
     private function __construct(){
         $config = require_once './config/db_config.php';
         $dsn = 'mysql:host='.$config['host'].';dbname='.$config['db_name'].';charset='.$config['charset'];
-        $opt = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
+        $opt = [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
         $pdo = new PDO($dsn, $config['username'], $config['password'], $opt);
         self::$connection = $pdo;
     }

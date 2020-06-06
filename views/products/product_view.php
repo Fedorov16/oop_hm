@@ -10,6 +10,7 @@
             </div>
             <p class="product_view_desc"><?= $product_desc?></p>
             <a href="<?= SITE_ROOT . 'products/edit/' . $product_id ?>" class="btn btn-primary">Редактировать</a>
+            <a href="<?= SITE_ROOT . 'products/addSale/' . $product_id ?>" class="btn btn-primary">Добавить акцию</a>
             <a class="btn btn-primary" onclick="deleteBook(<?= $product_id ?>, '<?= SITE_ROOT; ?>')">Удалить продукт</a>
         </div>
         <div class="product_right_bar">

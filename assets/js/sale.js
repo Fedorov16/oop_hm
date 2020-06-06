@@ -1,10 +1,10 @@
         
         
-        let d=new Date(),
+        let d = new Date(),
         day=d.getDate();
         month=d.getMonth() + 1,
         year=d.getFullYear(),
-        deadline = (year + "-" + (day+1) + "-" + month);
+        deadline = (year + "-" + month + "-" + (day+1));
   
     function getTime(endTime) {
         let t = Date.parse(endTime) - Date.parse(new Date()),

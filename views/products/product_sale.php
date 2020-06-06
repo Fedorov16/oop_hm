@@ -20,7 +20,8 @@
                 <p class="category_product"> <?= $category_name ?> </p>
                 <p class="date_product"><?php $date = new DateTime($product_date);?><?= $date->format('d.m.Y');?> в <?= $date->format('G:i')?> </p>
                 <div class="for_order">
-                    <s class="price_product"><?= $product_price ?></s>
+                    <s class="old_price_product"><?= $product_old_price ?></s>
+                    <p class="price_product"><?= $product_price ?></p>
                     <a href="javascript:void(0)" class="to_order_product" onclick="addToCart(<?= $product['product_id']; ?>)">В корзину</a>
                 </div>
             </div>

@@ -18,6 +18,54 @@
 			include_once('./views/products/product_sale.php');
 			return;
 		}
+		public function addSale($parameters = []){
+			$id = $parameters[0];
+			if(!$id){
+				echo 'Некорректный id';
+				exit();
+			}
+			else{
+				if (isset($_POST['product_price'])){
+
+					$helper = new Helper();
+					$product_old_price = $helper->SanitizeString($_POST['product_old_price']);
+					$product_price = $helper->SanitizeString($_POST['product_price']);
+					$validation = new Validation();
+					$errors = [];
+					if(!$validation->checkNumber($product_old_price, 99999, 25)){
+						$errors[] = 'Цена не менее 25 и не более 99 999';
+					}
+					if(!$validation->checkNumber($product_price, 99999, 25)){
+						$errors[] = 'Цена не менее 25 и не более 99 999';
+					}
+					if(empty($errors)){
+						$productModel = new Product();
+						$product = [
+							'product_price' => $product_price,
+							'product_old_price' => $product_old_price,
+							'product_id' => $id,
+						];
+						$SaleProduct = $productModel->AddSaleProduct($product);
+						header('Location: ' . SITE_ROOT . 'products/sale');
+					}
+					else{
+						echo $errors;
+					}
+				}
+				
+					$productModel = new Product();
+					$product = $productModel->getProductById($id);
+
+					if(empty($product)){
+						echo 'Такого продукта нет';
+						exit();
+					}
+					$title = "Акция &laquo;" . $product['product_name'] . "&raquo;";
+					$header = new Header($title);
+					include_once('./views/products/product_add_sale.php');
+			}
+			return;
+		}
 		
 		public function add() {
 			
@@ -51,13 +99,13 @@
 			if(empty($errors)){
 				$productModel = new Product();
 				// TODO: use PHP function
-				$product = array(
+				$product = [
 					'product_name' => $product_name,
 					'product_price' => $product_price,
 					'product_category_id' => $product_category_id,
 					'product_desc' => $product_desc,
 					'product_icon' => $path_to_img_cut
-				);
+				];
 				$newProduct = $productModel->AddProduct($product);
 				
 				header('Location: ' . SITE_ROOT . 'products/list');
@@ -127,14 +175,14 @@
 					if(empty($errors)){
 						$productModel = new Product();
 						// TODO: use PHP function
-						$product = array(
+						$product = [
 							'product_name' => $product_name,
 							'product_price' => $product_price,
 							'product_category_id' => $product_category_id,
 							'product_desc' => $product_desc,
 							'product_id' => $id,
 							'product_icon' => $path_to_img_cut
-						);
+						];
 						$productModel->updateProduct($product);
 						header('Location: ' . SITE_ROOT . 'products/list');
 					}	
