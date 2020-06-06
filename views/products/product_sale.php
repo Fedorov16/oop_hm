@@ -1,5 +1,6 @@
-
+<script src="<?= JS; ?>sale.js" defer> </script>
 <section>
+    <h1>Товар дня</h1>
     <h1>До конца акции осталось</h1>
     <div class="timer-numbers" id="timer">
 			<span class="hours">18</span>
@@ -25,6 +26,7 @@
                     <a href="javascript:void(0)" class="to_order_product" onclick="addToCart(<?= $product['product_id']; ?>)">В корзину</a>
                 </div>
             </div>
+            <a class="btn btn-primary" onclick="deleteSale(<?= $product_id ?>, '<?= SITE_ROOT; ?>')">Удалить акцию</a>
         </div>
         <?php } ?>
     </div>

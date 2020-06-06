@@ -12,6 +12,7 @@
 			"products/edit/([0-9]+)" => "edit/$1",
 			"products/delete/([0-9]+)" => "delete/$1",
 			"products/addSale/([0-9]+)" => "addSale/$1",
+			"products/deleteSale/([0-9]+)" => "deleteSale/$1",
 		],
 
 		"CategoriesController" => [

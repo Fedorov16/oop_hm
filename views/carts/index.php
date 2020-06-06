@@ -19,9 +19,9 @@
                 <div class="products">
                     <?php foreach($productList as $product){extract($product, EXTR_OVERWRITE) ?>
                         <div class="product">
-                        <div class="product_header">
-                            <img src="<?= IMG . "product_icon/dir" . $product_icon ?>" alt="Лого" width='210px' height="210px">
-                        </div><br>
+                            <div class="product_header">
+                                <img src="<?= IMG . "product_icon/dir" . $product_icon ?>" alt="Лого" width='210px' height="210px">
+                            </div><br>
                             <div class="desc_product">
                                 <h2 class="name_product"><?= $product_name ?></h2>
                                 <p class="price_product"><?= $product_price?> x <?= $cart[$product['product_id']];?></p>
@@ -31,6 +31,7 @@
                 </div>
                 <br><h4 class="price_all">Итого за выбранные товары <?= $price_all ?> руб.</h4>
                 <button type="submit" name='products_to_orders' class="btn btn-success">Заказать</button>
+                <a href="<?= SITE_ROOT . 'cart'?>" class="from_order_product" onclick="deleteCart(<?= $product['product_id']; ?>)">Очистить корзину</a>
             </form>
 </section>
     <?php } ?>

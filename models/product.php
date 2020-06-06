@@ -86,6 +86,18 @@
 			return;
 		}
 
+		public function deleteSaleProduct($id, $product){
+			$product_query = DB::connect();
+			$query = (new Update('products'))
+					->set(['product_is_sale' => 0,
+							'product_price' => $product['product_old_price'],
+							])
+					->where("product_id = $id")
+					->build();
+			$DeleteSaleProduct = $product_query->query($query);
+			return;
+		}
+
 		public function deleteProduct($id){
 			$product_query = DB::connect();
 			$query = (new Update('products'))

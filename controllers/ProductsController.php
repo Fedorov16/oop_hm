@@ -214,5 +214,18 @@
 				header('Location: ' . SITE_ROOT . 'products/list');
 			}	
 		}
+
+		public function deleteSale($parameters = []){
+			$id = $parameters[0];
+			if(!$id){
+				return;
+			}
+			else{
+				$productModel = new Product();
+				$product = $productModel->getProductById($id);
+				$productModel->deleteSaleProduct($id, $product);
+				header('Location: ' . SITE_ROOT . 'products/sale');
+			}	
+		}
 					
 	}

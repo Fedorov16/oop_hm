@@ -9,7 +9,6 @@ function include(url) {
 include('http://localhost/oop_hm/assets/js/category.js');
 include('http://localhost/oop_hm/assets/js/products.js');
 include('http://localhost/oop_hm/assets/js/news.js');
-include('http://localhost/oop_hm/assets/js/sale.js');
 
 //выпадающее меню навигатора
 

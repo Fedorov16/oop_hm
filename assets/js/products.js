@@ -1,9 +1,15 @@
 'use strict';
 
 //удаление продукта
-function deleteBook(id, site_root) {
+function deleteProduct(id, site_root) {
 	if (confirm('Вы действительно хотите удалить этот продукт?')) {
 		window.location.href = `${site_root}products/delete/${id}`; 
+	} 
+}
+//удаление акции
+function deleteSale(id, site_root) {
+	if (confirm('Вы действительно хотите удалить из акции этот продукт?')) {
+		window.location.href = `${site_root}products/deleteSale/${id}`; 
 	} 
 }
 
@@ -19,4 +25,13 @@ function addToCart(id) {
 		'expires': 2*24*60*60,
 		'path': '/'
 	});
+}
+
+function deleteCart() {
+
+	setCookie('cart', "", {
+    	expires: -1,
+		path: '/',
+	});
+	
 }

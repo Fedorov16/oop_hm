@@ -43,6 +43,15 @@ class ProductsProxyController{
         }
     }
 
+    public function deleteSale($parameters = []){
+        if(User::checkIfUserAuthorized()){
+        $this->controller->deleteSale($parameters);
+        } else{
+            echo "У вас недостаточно прав для просмотра данной страницы";
+            return;
+        }
+    }
+
 
 
 }
