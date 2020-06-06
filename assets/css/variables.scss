@@ -1,1 +1,14 @@
-$mainColor : rgba(220, 215, 209);
+$textTitle: 26px;
+$textOrdinary: 16px;
+
+
+$mainColor: rgb(219, 145, 82);
+%main-gradient-block{
+    background: $mainColor;
+    background: -webkit-linear-gradient(180deg, rgb(219, 145, 82) 20%, rgb(176, 64, 0) 100%);
+    background: -o-linear-gradient(180deg, rgb(219, 145, 82) 20%, rgb(176, 64, 0) 100%);
+    background: -ms-linear-gradient(180deg, rgb(219, 145, 82) 20%, rgb(176, 64, 0) 100%);
+    background: linear-gradient(180deg, rgb(219, 145, 82) 20%, rgb(176, 64, 0) 100%);
+}
+
+

@@ -1,8 +1,16 @@
 @charset "UTF-8";
+footer, .logo_header_name {
+  background: #db9152;
+  background: -webkit-linear-gradient(180deg, #db9152 20%, #b04000 100%);
+  background: -o-linear-gradient(180deg, #db9152 20%, #b04000 100%);
+  background: -ms-linear-gradient(180deg, #db9152 20%, #b04000 100%);
+  background: linear-gradient(180deg, #db9152 20%, #b04000 100%);
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: Lobster, Open Sans, Arial, Helvetica, sans-serif;
+  font-family: "EXO 2", "Open Sans", "Times New Roman" Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -13,7 +21,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Lobster, "Times New Roman", Arial, Helvetica, sans-serif;
 }
 
 /* Первый уровень HEADER */
@@ -32,12 +39,25 @@ body {
   justify-content: center;
 }
 
+.logo_header_name {
+  font-size: 26px;
+  align-self: center;
+  font-weight: 700;
+  margin: 0 10px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .header_text {
   font-size: 26px;
   align-self: center;
 }
 
 .header_icon {
+  align-self: center;
+}
+
+.header_icon_cart {
   align-self: center;
 }
 
@@ -186,15 +206,6 @@ footer {
   position: relative;
   flex-shrink: 0;
   /* фон футера */
-  background: #dcd7d1;
-  background: -moz-linear-gradient(top, #dcd7d1 0%, #dcd7d1 3%, #988f86 17%, #877e73 90%, #cdc7c1 98%, #cdc7c1 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, #dcd7d1), color-stop(3%, #dcd7d1), color-stop(17%, #988f86), color-stop(90%, #877e73), color-stop(98%, #cdc7c1), color-stop(100%, #cdc7c1));
-  background: -webkit-linear-gradient(top, #dcd7d1 0%, #dcd7d1 3%, #988f86 17%, #877e73 90%, #cdc7c1 98%, #cdc7c1 100%);
-  background: -o-linear-gradient(top, #dcd7d1 0%, #dcd7d1 3%, #988f86 17%, #877e73 90%, #cdc7c1 98%, #cdc7c1 100%);
-  background: -ms-linear-gradient(top, #dcd7d1 0%, #dcd7d1 3%, #988f86 17%, #877e73 90%, #cdc7c1 98%, #cdc7c1 100%);
-  background: linear-gradient(to bottom, #dcd7d1 0%, #dcd7d1 3%, #988f86 17%, #877e73 90%, #cdc7c1 98%, #cdc7c1 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#dcd7d1", endColorstr="#cdc7c1", GradientType=0 );
-  background-color: rgba(44, 39, 39, 0.555);
   width: 100%;
 }
 footer > div {

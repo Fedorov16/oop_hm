@@ -1,7 +1,6 @@
 
 <section>
     <div class="banner_section">
-        <h2>Текст банера</h2>
         <img src="<?= IMG ?>fon/img1.jpg" alt="fon">
     </div>
     <div class="products">

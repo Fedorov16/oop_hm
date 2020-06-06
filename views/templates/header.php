@@ -3,23 +3,21 @@
         <div class="top_header">
              <div class="logo_header">
                  <a href="<?= ROOT ?>products/list"><img src="<?= IMG ?>logo.png" alt="лого"></a>
-                 <a href="<?= ROOT ?>products/list" class="logo_header_des header_text">Handmade по-нижегородски</a>
+                 <a href="<?= ROOT ?>products/list" class="logo_header_name">HANDMADE ПО-НИЖЕГОРОДСКИ</a>
              </div>
              <div class="search_header">
                  <input type="text" name="field_search" id="field_search" class="field_search" placeholder="Поиск"><!--
                  --><input type="submit" name="btn_search" id="btn_search" class="btn_search" value="Найти">
              </div>
              <div class="basket_header">
-                 <div class="basket_basket">
-                     <a href="<?=SITE_ROOT .'cart'?>" class="header_icon"><i class="fa fa-cart-arrow-down fa-fw" aria-hidden="true"></i></a>
-                     <a href="<?=SITE_ROOT .'cart'?>" class="basket_header_des header_text">Корзина</a>
-                 </div>
                 <?php if(User::checkIfUserAuthorized()) : ;?>
                  <div class="wish_basket">
-                     <a href="#" class="header_icon"><i class="fa fa-heart fa-fw" aria-hidden="true"></i></a>
-                     <a href="#" class="wish_header_des header_text">Понравилось</a>
+                     <a href="#" class="header_icon"><img src="./../assets/img/wish.png" class='header_icon_cart'></a>
                  </div>
                 <?php endif; ?>
+                <div class="basket_basket">
+                     <a href="<?=SITE_ROOT .'cart'?>" class="header_icon"><img src="./../assets/img/cart.png" class='header_icon_cart'></a>
+                 </div>
              </div>
         </div>
         <hr>
