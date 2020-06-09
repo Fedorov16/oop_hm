@@ -24,12 +24,13 @@
 						$parameters = explode('/', $parametrizedAction);
 						$action = array_shift($parameters);
 						call_user_func([$controllerObj, $action], $parameters);
+						
+						
 						exit();
 					}
 				}
 			}
-			// TODO: Отобразить страницу с ошибкой => ErrorsController -> index() - отобразить страницу 404
-			echo '404 - Page not found!'; 
+			header('Location: ' . SITE_ROOT . 'index');
 			exit();
 		}
 	}

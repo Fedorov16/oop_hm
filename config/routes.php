@@ -41,5 +41,8 @@
 		"NewsProxyController" => [
 			"news/add" => "add"
 		],
+		"ErrorsController" =>[
+			"index" => "index"
+		]
 
 	];
