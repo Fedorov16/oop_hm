@@ -1,8 +1,24 @@
-
 <section>
-    <div class="banner_section">
-        <img src="<?= IMG ?>fon/img1.jpg" alt="fon">
+<div class="slider">
+    <div class="slider__wrapper">
+      <div class="slider__item">
+        <div style="height: 300px;"><img src="<?= IMG . "fon/clide_2.png" ?>"></div>
+      </div>
+      <div class="slider__item">
+        <div style="height: 300px;"><img src="<?= IMG . "fon/clide1.png" ?>"></div>
+      </div>
+      <div class="slider__item">
+        <div style="height: 300px;"><img src="<?= IMG . "fon/clide2.png" ?>"></div>
+      </div>
+      <div class="slider__item">
+        <div style="height: 300px;"><img src="<?= IMG . "fon/clide3.png" ?>"></div>
+      </div>
     </div>
+    <a class="slider__control slider__control_left" href="#" role="button"></a>
+    <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+  </div>
+
+    
     <div class="products">
     <?php foreach($products as $product){extract($product, EXTR_OVERWRITE) ?>
         <div class="product">
@@ -25,4 +41,5 @@
     </br><h2><a href="<?= SITE_ROOT . 'products/add'?>">Добавить продукт</a></h2>
     </br><h2><a href="<?= SITE_ROOT . 'categories/list'?>">Просмотр категорий</a></h2>
 </section>
+<script src="<?=JS . 'carusel.js'?>"></script>
 <?php include_once('./views/templates/footer.php'); ?>
