@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="dev">
-                <a href="mainto:svfedorov16@gmail.com?subject=Ваша верстка оставляет желать лучшего" class="dev__link">Сайт создал svfedorov16@gmail.com</a>
+                <a href="mainto:svfedorov16@gmail.com?subject=Ваша верстка оставляет желать лучшего" class="dev__link">svfedorov16@gmail.com</a>
             </div>   
         </footer>
         

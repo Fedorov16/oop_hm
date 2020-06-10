@@ -1,44 +1,46 @@
 <body>
     <header>
         <div class="top_header">
-             <div class="logo_header">
+            <div class="logo_header">
                  <a href="<?= ROOT ?>products/list"><img src="<?= IMG ?>logo.png" alt="лого"></a>
                  <a href="<?= ROOT ?>products/list" class="logo_header_name">HANDMADE ПО-НИЖЕГОРОДСКИ</a>
-             </div>
-             <div class="search_header">
+            </div>
+            <div class="search_header">
                  <input type="text" name="field_search" id="field_search" class="field_search" placeholder="Поиск"><!--
                  --><input type="submit" name="btn_search" id="btn_search" class="btn_search" value="Найти">
-             </div>
-             <div class="basket_header">
+            </div>
+
+            <div class="logReg">
+             <?php if(!(User::checkIfUserAuthorized())) : ;?>
+                <li class="li_inline-block"><a class="logReg_btn" href="<?=SITE_ROOT?>register">Регистрация</a></li>
+                <li class="li_inline-block"><a class="logReg_btn" href="<?=SITE_ROOT?>auth">Авторизация</a></li>
+                <?php else : ;?>
+                <li class="li_inline-block"><a class="logReg_btn" href="<?=SITE_ROOT?>out">Выход</a></li>
+                <?php endif; ?> 
+            </div>
+
+            <div class="basket_header">
                 <?php if(User::checkIfUserAuthorized()) : ;?>
-                 <div class="wish_basket">
+                <div class="wish_basket">
                      <a href="#" class="header_icon"><img src="./../assets/img/wish.png" class='header_icon_cart'></a>
-                 </div>
+                </div>
                 <?php endif; ?>
                 <div class="basket_basket">
                      <a href="<?=SITE_ROOT .'cart'?>" class="header_icon"><img src="./../assets/img/cart.png" class='header_icon_cart'></a>
-                 </div>
-             </div>
+                </div>
+            </div>
         </div>
-        <hr>
         <div class="footer_header">
              <ul class="category_top">
-                 <li class="li_inline-block li_dropdown standart-border"><a href="#" class="category_top_text">Каталог товаров</a>
+                 <li class="li_inline-block li_dropdown "><a href="#" class="category_top_text">Каталог товаров</a>
                     <ul class="category_footer display_none">
                     <?php foreach($categories as $category){extract($category, EXTR_OVERWRITE) ?>
                         <li class="li_block standart-border"><a href="<?=SITE_ROOT . 'categories/view/' . $category_id?>" class="category_footer_text"><?=$category_name?></a></li>
                     <?php } ?>    
                     </ul>
                 </li>
-                 <li class="li_inline-block standart-border"><a href="<?=SITE_ROOT . 'news/list'?>" class="category_top_text">Мастер классы</a></li>
-                 <li class="li_inline-block standart-border"><a href="<?=SITE_ROOT . 'products/sale'?>" class="category_top_text">Акции</a></li>
-
-                <?php if(!(User::checkIfUserAuthorized())) : ;?>
-                <li class="li_inline-block float_right"><a class="btn btn-info" href="<?=SITE_ROOT?>register">Регистрация</a></li>
-                <li class="li_inline-block float_right"><a class="btn btn-info" href="<?=SITE_ROOT?>auth">Авторизация</a></li>
-                <?php else : ;?>
-                <li class="li_inline-block float_right"><a class="btn btn-info" href="<?=SITE_ROOT?>out">Выход</a></li>
-                <?php endif; ?> 
+                 <li class="li_inline-block"><a href="<?=SITE_ROOT . 'news/list'?>" class="category_top_text">Мастер классы</a></li>
+                 <li class="li_inline-block"><a href="<?=SITE_ROOT . 'products/sale'?>" class="category_top_text">Акции</a></li>
             </ul>
              
             

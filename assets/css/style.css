@@ -1,5 +1,5 @@
 @charset "UTF-8";
-footer, .logo_header_name {
+footer, .standart-border, .footer_header, .logo_header_name {
   background: #db9152;
   background: -webkit-linear-gradient(180deg, #db9152 20%, #b04000 100%);
   background: -o-linear-gradient(180deg, #db9152 20%, #b04000 100%);
@@ -63,7 +63,6 @@ body {
 
 .search_header {
   align-self: center;
-  justify-content: center;
 }
 
 .field_search {
@@ -86,6 +85,17 @@ body {
   border-radius: 5px;
 }
 
+.logReg {
+  align-self: center;
+}
+
+.logReg_btn {
+  font-size: 1.2em;
+  display: block;
+  height: 100%;
+  padding: 5px;
+}
+
 .basket_header {
   display: flex;
   justify-content: center;
@@ -100,15 +110,21 @@ body {
 }
 
 /* Второй уровень HEADER*/
+.footer_header {
+  height: 45px;
+}
+
 .category_top {
   max-width: 1280px;
   margin: 0 auto;
+  height: 40px;
 }
 
 .category_footer {
   position: absolute;
   z-index: 1;
-  top: 40px;
+  top: 52px;
+  left: 10px;
 }
 
 .li_dropdown {
@@ -116,7 +132,6 @@ body {
 }
 
 .standart-border {
-  background-color: #fff;
   margin: 0 10px 5px 0;
   border: 1px solid black;
   border-radius: 5px;
@@ -128,7 +143,7 @@ body {
 }
 
 .category_top_text {
-  font-size: 1.2em;
+  font-size: 1.4em;
   display: block;
   height: 100%;
   padding: 5px;
@@ -178,6 +193,11 @@ A:hover {
 }
 
 /*Body*/
+.main_content {
+  background-color: #eaeaea70;
+  padding: 20px 0;
+}
+
 section {
   display: flex;
   flex: 1 0 auto;
@@ -203,7 +223,6 @@ section {
 
 /* FOOTER  */
 footer {
-  margin-top: 100px;
   position: relative;
   flex-shrink: 0;
   /* фон футера */
@@ -301,7 +320,7 @@ footer > div {
   content: "";
   display: inline-block;
   width: 20px;
-  height: 30px;
+  height: 20px;
   background: transparent no-repeat center center;
   background-size: 100% 100%;
 }
@@ -312,13 +331,13 @@ footer > div {
   left: 0;
 }
 .slider__control_left::before {
-  background-image: url("./../img/fon/left.png");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
 .slider__control_right {
   right: 0;
 }
 .slider__control_right::before {
-  background-image: url("./../img/fon/right.png");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 .slider__item > div {
   line-height: 250px;
@@ -363,12 +382,15 @@ footer > div {
   color: red;
 }
 
-.desc_product > h2 {
+.desc_product {
+  background-color: #fafafa;
+}
+.desc_product h2 {
   margin: 0;
   font-size: 18px;
   font-weight: 200;
 }
-.desc_product > p {
+.desc_product p {
   margin: 0 0 5px;
   font-size: 14px;
   font-weight: 200;

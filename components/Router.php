@@ -23,8 +23,8 @@
 						$parametrizedAction = preg_replace("~$pattern~", $parametrizedAction, $userUrl);
 						$parameters = explode('/', $parametrizedAction);
 						$action = array_shift($parameters);
+			
 						call_user_func([$controllerObj, $action], $parameters);
-						
 						
 						exit();
 					}
