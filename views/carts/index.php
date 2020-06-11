@@ -1,9 +1,12 @@
     <?php if($cart == ""){?>
+<div class="main_content">
     <section>
     <h3>Ваша корзина пуста</h3>
     <a class="h3" href="<?=SITE_ROOT?>products/list">Хочу что-нибудь выбрать!</a>
     </section>
+</div>
     <?php }else{ ?>
+<div class="main_content">
     <section>
         <h2>Список выбранных товаров</h2>
         
@@ -33,6 +36,7 @@
                 <button type="submit" name='products_to_orders' class="btn btn-success">Заказать</button>
                 <a href="<?= SITE_ROOT . 'cart'?>" class="from_order_product" onclick="deleteCart(<?= $product['product_id']; ?>)">Очистить корзину</a>
             </form>
-</section>
+    </section>
+</div>
     <?php } ?>
 <?php include_once('./views/templates/footer.php'); ?>

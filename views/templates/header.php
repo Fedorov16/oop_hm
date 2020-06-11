@@ -6,8 +6,10 @@
                  <a href="<?= ROOT ?>products/list" class="logo_header_name">HANDMADE ПО-НИЖЕГОРОДСКИ</a>
             </div>
             <div class="search_header">
-                 <input type="text" name="field_search" id="field_search" class="field_search" placeholder="Поиск"><!--
-                 --><input type="submit" name="btn_search" id="btn_search" class="btn_search" value="Найти">
+                <form class="search_form">
+                <input type="text" placeholder="Поиск.." class="search_input" name="search"><!--
+                --><button type="submit"><i class="fa fa-search search_button"></i></button>
+                </form>
             </div>
 
             <div class="logReg">
@@ -22,11 +24,11 @@
             <div class="basket_header">
                 <?php if(User::checkIfUserAuthorized()) : ;?>
                 <div class="wish_basket">
-                     <a href="#" class="header_icon"><img src="./../assets/img/wish.png" class='header_icon_cart'></a>
+                     <a href="#" class="header_icon"><img src="<?=IMG . 'wish.png'?>" class='header_icon_cart'></a>
                 </div>
                 <?php endif; ?>
                 <div class="basket_basket">
-                     <a href="<?=SITE_ROOT .'cart'?>" class="header_icon"><img src="./../assets/img/cart.png" class='header_icon_cart'></a>
+                     <a href="<?=SITE_ROOT .'cart'?>" class="header_icon"><img src="<?=IMG . 'cart.png'?>" class='header_icon_cart'></a>
                 </div>
             </div>
         </div>

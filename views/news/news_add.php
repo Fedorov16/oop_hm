@@ -7,6 +7,7 @@
         </div>
     <?php } ?>
 
+<div class="main_content">
     <section>
         <form method='POST' enctype="multipart/form-data">
             <label for="news_icon">Изображение</label><input type="file" name="news_icon"><br>
@@ -16,4 +17,5 @@
             <input type="submit" value="Отправить">
         </form>
     </section>
-<?php// include_once('./views/templates/footer.php'); ?>
+</div>
+<?php include_once('./views/templates/footer.php'); ?>

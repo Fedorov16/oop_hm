@@ -9,13 +9,14 @@
   }
   
   body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
   }
   
   /* Первый уровень HEADER */
-  
   .top_header {
     display: flex;
     flex-wrap: nowrap;
@@ -50,31 +51,47 @@
   .header_icon_cart{
     align-self: center;
   }
-  
-  .search_header {
+  .search_header{
     align-self: center;
-  }
-  
-  .field_search {
-    height: 40px;
-    width: 60%;
-    font-size: 1.5em;
-    border-radius: 3px;
-  }
-  
-  .btn_search {
-    height: 40px;
-    font-size: 1.5em;
-    background-color: #cc874eb9;
-    border-radius: 5px;
-  
-    &:hover {
-      height: 43px;
-      font-size: 1.5em;
-      background-color: #cc874e;
-      border-radius: 5px;
-    }
-  }
+      > .search_form{
+        position: relative;
+        > button {
+          background: transparent;
+          font-size: 17px;
+          border: none;
+          cursor: pointer;
+          position: absolute;
+          top: calc(50% - 13px);
+          color: $bgContent;
+          right: 5px;
+            &:hover{
+              color: $mainColor;
+            } 
+            &:focus{
+              border: none;
+            } 
+            &:active{
+              border: none;
+            } 
+        }
+
+        & >input{
+          padding: 6px;
+          font-size: 17px;
+          border: 1px solid $mainColor;
+          border-radius: 5px;
+          &:hover{
+            border: 2px solid $mainColor;
+          } 
+          &:focus{
+            border: none;
+          } 
+          &:active{
+            border: none;
+          } 
+        }
+      } 
+}
   .logReg{
     align-self: center;
   }
@@ -182,10 +199,10 @@
   .main_content{
     background-color: $bgContent;
     padding: 20px 0;
+    flex: 1 0 auto;
   }
   section {
     display: flex;
-    flex: 1 0 auto;
     flex-direction: column;
     justify-content: center;
     max-width: 1280px;
@@ -209,6 +226,8 @@
   footer {
     position: relative;
     flex-shrink: 0;
+    // grid-row-start: 2;
+    // grid-row-end: 3;
     /* фон футера */
     @extend %main-gradient-block;
     width: 100%;
