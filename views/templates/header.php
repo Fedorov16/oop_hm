@@ -11,27 +11,25 @@
                 --><button type="submit"><i class="fa fa-search search_button"></i></button>
                 </form>
             </div>
-
+            <div class="basket_header">
+                <?php if(User::checkIfUserAuthorized()) : ;?>
+                <div class="wish_basket">
+                     <a href="#" class="header_icon"><img src="<?=IMG . 'wish2.png'?>" class='icon_like'><p class='header_icon_cart'>Like</p></a>
+                </div>
+                <?php endif; ?>
+                <div class="basket_basket">
+                     <a href="<?=SITE_ROOT .'cart'?>" class="header_icon"> <img src="<?=IMG . 'cart.png'?>" class='icon_cart'> <p class='header_icon_cart'>Корзина</p>    </a>
+                </div>
+            </div>
             <div class="logReg">
              <?php if(!(User::checkIfUserAuthorized())) : ;?>
-                <li class="li_inline-block"><a class="logReg_btn" href="<?=SITE_ROOT?>register">Регистрация</a></li>
-                <li class="li_inline-block"><a class="logReg_btn" href="<?=SITE_ROOT?>auth">Авторизация</a></li>
+                <li class="li_inline-block"><a class="logReg_btn" href="<?=SITE_ROOT?>auth">Вход</a></li>
                 <?php else : ;?>
                 <li class="li_inline-block"><a class="logReg_btn" href="<?=SITE_ROOT?>out">Выход</a></li>
                 <?php endif; ?> 
             </div>
-
-            <div class="basket_header">
-                <?php if(User::checkIfUserAuthorized()) : ;?>
-                <div class="wish_basket">
-                     <a href="#" class="header_icon"><img src="<?=IMG . 'wish.png'?>" class='header_icon_cart'></a>
-                </div>
-                <?php endif; ?>
-                <div class="basket_basket">
-                     <a href="<?=SITE_ROOT .'cart'?>" class="header_icon"><img src="<?=IMG . 'cart.png'?>" class='header_icon_cart'></a>
-                </div>
-            </div>
         </div>
+
         <div class="footer_header">
              <ul class="category_top">
                  <li class="li_inline-block li_dropdown "><a href="#" class="category_top_text">Каталог товаров</a>

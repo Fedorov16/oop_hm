@@ -27,16 +27,21 @@ body {
 
 /* Первый уровень HEADER */
 .top_header {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
   height: 60px;
-  justify-content: space-around;
   max-width: 1280px;
   margin: 0 auto;
+  display: grid;
+  grid-template: "a a a b b b c c d";
+}
+@media (max-width: 768px) {
+  .top_header {
+    grid-template: "a b b c d";
+  }
 }
 
 .logo_header {
+  grid-area: a;
+  justify-self: start;
   display: flex;
   justify-content: center;
 }
@@ -49,21 +54,25 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+@media (max-width: 992px) {
+  .logo_header_name {
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .logo_header_name {
+    width: 200px;
+  }
+}
 
 .header_text {
   font-size: 26px;
   align-self: center;
 }
 
-.header_icon {
-  align-self: center;
-}
-
-.header_icon_cart {
-  align-self: center;
-}
-
 .search_header {
+  grid-area: b;
+  justify-self: start;
   align-self: center;
 }
 .search_header > .search_form {
@@ -77,55 +86,104 @@ body {
   position: absolute;
   top: calc(50% - 13px);
   color: #eaeaea70;
-  right: 5px;
+  right: 10px;
+  outline: none;
 }
 .search_header > .search_form > button:hover {
   color: #db9152;
 }
-.search_header > .search_form > button:focus {
-  border: none;
-}
-.search_header > .search_form > button:active {
-  border: none;
-}
 .search_header > .search_form > input {
   padding: 6px;
+  width: 25vw;
+  max-width: 300px;
   font-size: 17px;
-  border: 1px solid #db9152;
-  border-radius: 5px;
-}
-.search_header > .search_form > input:hover {
   border: 2px solid #db9152;
+  border-radius: 10px;
+  outline: none;
 }
 .search_header > .search_form > input:focus {
-  border: none;
+  border: 2px solid #db9152;
+  box-shadow: 0 0 5px #eeb251;
+  -webkit-box-shadow: 0 0 5px #eeb251;
+  -moz-box-shadow: 0 0 5px #eeb251;
 }
-.search_header > .search_form > input:active {
-  border: none;
+
+.basket_header {
+  grid-area: c;
+  justify-self: center;
+  display: flex;
+}
+@media (max-width: 768px) {
+  .basket_header {
+    justify-self: end;
+  }
+}
+
+.basket_basket, .wish_basket {
+  display: flex;
+  margin-right: 20px;
+}
+@media (max-width: 992px) {
+  .basket_basket, .wish_basket {
+    margin: 0 5px;
+  }
+}
+
+.header_icon {
+  align-self: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #db9152;
+}
+.header_icon:hover {
+  color: #db9152;
+}
+
+.icon_cart {
+  align-self: center;
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+.icon_like {
+  align-self: center;
+  height: 25px;
+  margin-bottom: 5px;
+}
+
+.header_icon_cart {
+  margin: 0;
+  display: inline-block;
+}
+@media (max-width: 1200px) {
+  .header_icon_cart {
+    display: none;
+  }
 }
 
 .logReg {
+  grid-area: d;
+  justify-self: end;
   align-self: center;
+}
+@media (max-width: 1280px) {
+  .logReg {
+    justify-self: start;
+    margin-left: 15px;
+  }
 }
 
 .logReg_btn {
   font-size: 1.2em;
   display: block;
+  min-width: 70px;
   height: 100%;
   padding: 5px;
+  color: #db9152;
 }
-
-.basket_header {
-  display: flex;
-  justify-content: center;
-}
-
-.basket_basket, .wish_basket {
-  display: flex;
-}
-
-.header_icon {
-  font-size: 40px;
+.logReg_btn:hover {
+  font-weight: 600;
+  color: #db9152;
 }
 
 /* Второй уровень HEADER*/
