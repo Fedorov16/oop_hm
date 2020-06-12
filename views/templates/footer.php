@@ -3,7 +3,7 @@
                 <div class="for_customers">
                     <h2 class="footer_head_head">Покупателю</h2>
                     <div class="footer_head_link">
-                        <li class="li_footer li_block"><a href="#">Акции</a></li>
+                        <li class="li_footer li_block"><a href="<?=SITE_ROOT . 'products/sale'?>">Акции</a></li>
                         <li class="li_footer li_block"><a href="#">Оплата</a></li>
                         <li class="li_footer li_block"><a href="#">Доставка</a></li> 
                     </div>
@@ -12,7 +12,7 @@
                     <h2 class="footer_head_head">О нас</h2>
                     <div class="footer_head_link">
                         <li class="li_footer li_block"><a href="#">Новости</a></li>
-                        <li class="li_footer li_block"><a href="#">Мастер-классы</a></li>
+                        <li class="li_footer li_block"><a href="<?=SITE_ROOT . 'news/list'?>">Мастер-классы</a></li>
                     </div>
                 </div>
                 <div class="title_footer">
@@ -25,11 +25,11 @@
                     <h2 class="footer_head_head">Контакты</h2>
                     <li class="li_footer li_block">
                         <i class="fa fa-phone social-item__icon"></i>
-                        <a href="tel:+79819578828" class="social-item__link">+7&nbsp;(123)&nbsp;345-67-89</a>
+                        <a href="tel:+79819578828" class="social-item__link">+7&nbsp;(981)&nbsp;957-88-28</a>
                     </li>
                     <li class="li_footer li_block">
                         <i class="fa fa-envelope social-item__icon"></i><nobr>
-                        <a href="mainto:example@gmail.com" class="social-item__link">example@gmail.com</a>
+                        <a href="mainto:svfedorov16@gmail.com" class="social-item__link">svfedorov16@gmail.com</a>
                     </li>
                 </div>
                 <div class="other_link">

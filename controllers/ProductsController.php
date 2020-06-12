@@ -227,5 +227,28 @@
 				header('Location: ' . SITE_ROOT . 'products/sale');
 			}	
 		}
+		public function found(){
+			$title = 'Поиск';
+			$header = new Header($title);
+			
+			if (isset($_POST['search'])){
+				$helper = new Helper();
+				$anyWords = $helper->SanitizeString($_POST['search']);
+				$productModel = new Product();
+				$products = $productModel->getAllfound($anyWords);
+				$countProduct = count($products);
+				include_once('./views/products/product_found.php');	
+			}
+			return;
+		}
+		public function wish(){
+			$title = 'Избранное';
+			$header = new Header($title);
+			$userId = $_COOKIE['user_id'];
+			$productModel = new Product();
+			$products = $productModel->getAllWish($userId);
+			include_once('./views/products/product_wish.php');	
+			return;
+		}
 					
 	}

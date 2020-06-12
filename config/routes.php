@@ -3,8 +3,10 @@
 	$routes = [
 		"ProductsController" => [
 			"products/list" => "index",
+			"products/found" => "found",
 			"products/view/([0-9]+)" => "view/$1",
 			"products/sale" => "indexSale",
+			"products/wish" => "wish",
 		],
 
 		"ProductsProxyController" => [

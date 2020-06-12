@@ -6,7 +6,7 @@
                  <a href="<?= ROOT ?>products/list" class="logo_header_name">HANDMADE ПО-НИЖЕГОРОДСКИ</a>
             </div>
             <div class="search_header">
-                <form class="search_form">
+                <form method="POST" action="<?= ROOT ?>products/found" class="search_form">
                 <input type="text" placeholder="Поиск.." class="search_input" name="search"><!--
                 --><button type="submit"><i class="fa fa-search search_button"></i></button>
                 </form>
@@ -14,7 +14,7 @@
             <div class="basket_header">
                 <?php if(User::checkIfUserAuthorized()) : ;?>
                 <div class="wish_basket">
-                     <a href="#" class="header_icon"><img src="<?=IMG . 'wish2.png'?>" class='icon_like'><p class='header_icon_cart'>Like</p></a>
+                     <a href="<?= ROOT ?>products/wish" class="header_icon"><img src="<?=IMG . 'wish2.png'?>" class='icon_like'><p class='header_icon_cart'>Like</p></a>
                 </div>
                 <?php endif; ?>
                 <div class="basket_basket">

@@ -12,6 +12,18 @@
 			$result = $get_products->fetchAll();
 			return $result;
 		}
+
+		public function getAllfound($anyWords) {
+			$products_query = DB::connect();
+			$query=(new Select('products'))
+				->joins([['LEFT', 'categories', 'product_category_id', 'category_id']])
+				->where("WHERE `product_is_deleted` = 0 AND product_name LIKE '%$anyWords%'")
+				-> build();
+			$get_products = $products_query->query($query);
+			$result = $get_products->fetchAll();
+			return $result;
+		}
+
 		public function getAllSale() {
 			$products_query = DB::connect();
 			$query=(new Select('products'))
@@ -22,6 +34,19 @@
 			$result = $get_products->fetchAll();
 			return $result;
 		}
+
+		public function getAllWish($userId) {
+			$products_query = DB::connect();
+			$query=(new Select('wish'))
+				->joins([['LEFT', 'products', 'wish_product_id', 'product_id'],['LEFT', 'categories', 'product_category_id', 'category_id'] ])
+				->where("WHERE `product_is_deleted` = 0 AND `wish_user_id` = $userId")
+				-> build();
+			// echo $query;
+			$get_products = $products_query->query($query);
+			$result = $get_products->fetchAll();
+			return $result;
+		}
+
 		public function getProductByCategory($id){
 			$products_query = DB::connect();
 			$query=(new Select('products'))
