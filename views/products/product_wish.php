@@ -7,7 +7,7 @@
           <div class="product">
               <div class="product_header">
                   <img src="<?= IMG . "product_icon/dir" . $product_icon ?>" alt="Лого" width='210px' height="210px" >
-                  <a href="#"><img src="<?= IMG . 'heart.png'?>" alt="logo_heart" class="logo_heart"></a>
+                  <a href="<?= SITE_ROOT . 'products/wishAdd/' . $product_id?>"><img src="<?= IMG . 'heartFill.svg'?>" alt="logo_heart" class="logo_heart"></a>
               </div>
               <div class="desc_product">
                   <h2 class="name_product"><a href="<?= SITE_ROOT . 'products/view/' . $product_id?>"><?= $product_name ?></a></h2>

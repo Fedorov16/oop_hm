@@ -7,6 +7,11 @@
 			$header = new Header();
 			$productModel = new Product();
 			$products = $productModel->getAll();
+			$userId = $_COOKIE['user_id'];
+			$wishList = $productModel-> getWishById($userId);
+			// echo "<pre>";
+			// print_r($_SERVER['REQUEST_URI']);
+			// echo "</pre>";
 			include_once('./views/products/product.php');
 			return;
 		}
@@ -15,6 +20,8 @@
 			$header = new Header();
 			$productModel = new Product();
 			$products = $productModel->getAllSale();
+			$userId = $_COOKIE['user_id'];
+			$wishList = $productModel-> getWishById($userId);
 			include_once('./views/products/product_sale.php');
 			return;
 		}
@@ -236,6 +243,8 @@
 				$anyWords = $helper->SanitizeString($_POST['search']);
 				$productModel = new Product();
 				$products = $productModel->getAllfound($anyWords);
+				$userId = $_COOKIE['user_id'];
+				$wishList = $productModel-> getWishById($userId);
 				$countProduct = count($products);
 				include_once('./views/products/product_found.php');	
 			}
@@ -250,5 +259,17 @@
 			include_once('./views/products/product_wish.php');	
 			return;
 		}
-					
+		
+
+		public function wishAdd($parameters=[]){
+			$productId = $parameters[0];
+			if(!$productId){
+				echo 'Некорректный id';
+			}
+			$userId = $_COOKIE['user_id'];
+			$productModel = new Product();
+			$products = $productModel->wishaAddorDelete($userId, $productId);
+			header('Location: ' . SITE_ROOT . 'products/list');
+			return;
+		}		
 	}

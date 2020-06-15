@@ -47,6 +47,17 @@
 			return $result;
 		}
 
+		public function getWishById($userId) {
+			$products_query = DB::connect();
+			$query=(new Select('wish'))
+				->where("WHERE `wish_user_id` = $userId")
+				-> build();
+			// echo $query;
+			$get_products = $products_query->query($query);
+			$result = $get_products->fetchAll();
+			return $result;
+		}
+
 		public function getProductByCategory($id){
 			$products_query = DB::connect();
 			$query=(new Select('products'))
@@ -95,6 +106,33 @@
 					])
 			->build();
 			$NewProducts = $product_query->query($query);
+			return;
+		}
+
+		public function wishaAddorDelete($userId, $productId){
+			$db = DB::connect();
+			$query=(new Select('wish'))
+				->where ("WHERE wish_product_id = '$productId'")
+				->build();
+			$getPrdoduct = $db->query($query);
+			$result = $getPrdoduct->fetch();
+			
+			if(!$result){
+				$db = DB::connect();
+				$query = (new InsertInto('wish'))
+				->set([	'wish_user_id' => $userId,
+						'wish_product_id' => $productId,
+						])
+				->build();
+				$productAddWish = $db->query($query);
+			}
+			else{
+				$db = DB::connect();
+				$query = "DELETE FROM wish WHERE wish_product_id = $productId";
+				$productDeleteWish = $db->query($query);
+			}
+			
+		
 			return;
 		}
 

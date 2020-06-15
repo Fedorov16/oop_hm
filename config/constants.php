@@ -1,9 +1,9 @@
 <?php
-
+	
 	define('ROOT', '/oop_hm/');
 	define('FILE_ROOT', 'C:/xampp/htdocs' . ROOT); 
 	define('FILE_ASSETS', FILE_ROOT . 'assets/');
-	define('SITE_ROOT', 'http://localhost' . ROOT); 
+	define('SITE_ROOT', 'http://localhost' . ROOT);
 	define('ASSETS', SITE_ROOT . 'assets/');
 	define('CSS', ASSETS . 'css/');
 	define('JS', ASSETS . 'js/');

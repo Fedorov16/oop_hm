@@ -448,15 +448,15 @@ footer > div {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   transition: all 0.3s ease-in-out;
 }
 .logo_heart:hover {
-  width: 32px;
-  height: 32px;
+  width: 21px;
+  height: 21px;
   transition: all 0.3s ease-in-out;
-  color: red;
+  fill: #703434;
 }
 
 .desc_product {
