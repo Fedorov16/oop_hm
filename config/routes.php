@@ -7,7 +7,7 @@
 			"products/view/([0-9]+)" => "view/$1",
 			"products/sale" => "indexSale",
 			"products/wish" => "wish",
-			"products/wishaAd/([0-9]+)" => "wishAdd/([0-9]+)",
+			"products/wishAdd/([0-9]+)" => "wishAdd/([0-9]+)",
 		],
 
 		"ProductsProxyController" => [
@@ -35,6 +35,9 @@
 
 		"CartsController" => [
 			"cart" =>"index"
+		],
+		"OrdersController" =>[
+			"orderDelivery" => "orderDelivery",
 		],
 
 		"NewsController" => [

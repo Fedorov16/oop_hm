@@ -2,8 +2,11 @@
 <div class="main_content">
     <section>
         <h2>Избранное</h2>
+        <?php if(empty($products)){ ?>
+            <h2>Вы еще не добавили товары в Избранное</h2>
+        <?php }else{?>
         <div class="products">
-      <?php foreach($products as $product){extract($product, EXTR_OVERWRITE) ?>
+        <?php foreach($products as $product){extract($product, EXTR_OVERWRITE) ?>
           <div class="product">
               <div class="product_header">
                   <img src="<?= IMG . "product_icon/dir" . $product_icon ?>" alt="Лого" width='210px' height="210px" >
@@ -21,6 +24,7 @@
           </div>
           <?php } ?>
       </div>
+      <?php } ?>
     </section>
 </div>
 <?php include_once('./views/templates/footer.php'); ?>

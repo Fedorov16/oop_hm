@@ -9,9 +9,6 @@
 			$products = $productModel->getAll();
 			$userId = $_COOKIE['user_id'];
 			$wishList = $productModel-> getWishById($userId);
-			// echo "<pre>";
-			// print_r($_SERVER['REQUEST_URI']);
-			// echo "</pre>";
 			include_once('./views/products/product.php');
 			return;
 		}
@@ -256,7 +253,9 @@
 			$userId = $_COOKIE['user_id'];
 			$productModel = new Product();
 			$products = $productModel->getAllWish($userId);
-			include_once('./views/products/product_wish.php');	
+			include_once('./views/products/product_wish.php');
+			
+				
 			return;
 		}
 		
@@ -269,7 +268,9 @@
 			$userId = $_COOKIE['user_id'];
 			$productModel = new Product();
 			$products = $productModel->wishaAddorDelete($userId, $productId);
-			header('Location: ' . SITE_ROOT . 'products/list');
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
 			return;
-		}		
+		}
+			
+		
 	}

@@ -4,8 +4,8 @@
                     <h2 class="footer_head_head">Покупателю</h2>
                     <div class="footer_head_link">
                         <li class="li_footer li_block"><a href="<?=SITE_ROOT . 'products/sale'?>">Акции</a></li>
-                        <li class="li_footer li_block"><a href="#">Оплата</a></li>
-                        <li class="li_footer li_block"><a href="#">Доставка</a></li> 
+                      
+                        <li class="li_footer li_block"><a href="<?=SITE_ROOT . 'orderDelivery'?>">Доставка и оплата</a></li> 
                     </div>
                 </div>
                 <div class="about_us">
@@ -33,7 +33,7 @@
                     </li>
                 </div>
                 <div class="other_link">
-                    <h2 class="footer_head_head">Мы в соц.сетях</h2>
+                    <h2 class="footer_head_head">Мы в соцсетях</h2>
                     <div class="sprites">
                         <a href="https://vk.com" class="block block01"></a>
                         <a href="https://instagram.com" class="block block02"></a>
