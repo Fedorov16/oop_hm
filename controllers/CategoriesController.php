@@ -38,7 +38,12 @@ class CategoriesController{
             $title = $category['category_name'];
             $header = new Header($title);
             $productModel = new Product();
-			$products = $productModel->getProductByCategory($id);
+            $products = $productModel->getProductByCategory($id);
+        
+			if(isset($_COOKIE['user_id'])){
+				$userId = $_COOKIE['user_id'];
+				$wishList = $productModel-> getWishById($userId);
+			}
             include_once('./views/categories/category_view.php');
         }
         return;
