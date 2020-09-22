@@ -16,12 +16,14 @@
                 <div class="product_header">
                     <img src="<?= IMG . "product_icon/dir" . $product_icon ?>" alt="Лого" width='210px' height="210px" >
                     
+                    <?php if(isset($wishList)){ ?>
                     <?php foreach($wishList as $wish){extract($wish, EXTR_OVERWRITE) ?>
-                    <?php if($product_id === $wish_product_id){ ?>
-                      <a href="<?= SITE_ROOT . 'products/wishAdd/' . $product_id?>"><img src="<?= IMG . 'heartFill.svg'?>" alt="logo_heart" class="logo_heart"></a>
-                      <?php } else {?>
-                        <a href="<?= SITE_ROOT . 'products/wishAdd/' . $product_id?>"><img src="<?= IMG . 'heart.svg'?>" alt="logo_heart" class="logo_heart"></a>
-                      <?php } ?>
+                        <?php if($product_id === $wish_product_id){ ?>
+                        <a href="<?= SITE_ROOT . 'products/wishAdd/' . $product_id?>"><img src="<?= IMG . 'heartFill.svg'?>" alt="logo_heart" class="logo_heart"></a>
+                        <?php } else {?>
+                            <a href="<?= SITE_ROOT . 'products/wishAdd/' . $product_id?>"><img src="<?= IMG . 'heart.svg'?>" alt="logo_heart" class="logo_heart"></a>
+                        <?php } ?>
+                        <?php } ?>
                     <?php } ?>
                     
                 </div>

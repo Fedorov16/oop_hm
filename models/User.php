@@ -162,6 +162,22 @@
 			
 
 		}
+		public static function checkIfUserIsAdmin() {
+			if (!isset($_COOKIE['token']) || !isset($_COOKIE['user_id']) || !isset($_COOKIE['token_time'])) {
+				return false;
+			}
+			$userId = $_COOKIE['user_id'];
+			$db = DB::connect();
+			$query = (new Select('users'))
+						->what(['user_role_id'])
+						->where("WHERE `user_id` = $userId ")
+						->build(); 
+			$result = $db->query($query);
+			$UserRole = $result->fetch();
+			if($UserRole["user_role_id"] === '1'){
+				return true;
+			} else return false;
+		}
 
 
 	}

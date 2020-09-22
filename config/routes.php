@@ -32,6 +32,10 @@
 			"auth" => "auth",
 			"out" => "out"
 		],
+		"AdminController" => [
+			"admin/users" => "viewAllUsers",
+			"admin/product" => "viewAllProduct",
+		],
 
 		"CartsController" => [
 			"cart" =>"index"

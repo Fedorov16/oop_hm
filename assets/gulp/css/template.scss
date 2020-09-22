@@ -187,7 +187,13 @@
     top: 52px;
     left: 10px;
   }
-  .li_dropdown{
+  .category_footer_admin {
+    position: absolute;
+    z-index: 1;
+    top: 52px;
+    left: -10px;
+  }
+  .li_dropdown, .li_dropdown_admin{
     position: relative;
   }
  
@@ -208,6 +214,7 @@
     display: block;
     height: 100%;
     padding: 5px;
+    color: rgb(235, 235, 235);
   }
   
   .category_footer_text {

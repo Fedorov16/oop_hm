@@ -45,10 +45,6 @@
           </div>
           <?php } ?>
       </div>
-      <?php if(User::checkIfUserAuthorized()) : ;?>
-        </br><h2><a href="<?= SITE_ROOT . 'products/add'?>">Добавить продукт</a></h2>
-        </br><h2><a href="<?= SITE_ROOT . 'categories/list'?>">Просмотр категорий</a></h2>
-      <?php endif;?>
   </section>
 </div>
 <script src="<?=JS . 'carusel.js'?>"></script>

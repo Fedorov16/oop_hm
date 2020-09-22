@@ -1,4 +1,4 @@
-    <?php if($cart == ""){?>
+    <?php if(!isset($cart)){?>
 <div class="main_content">
     <section>
     <h3>Ваша корзина пуста</h3>

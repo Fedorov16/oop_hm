@@ -20,8 +20,10 @@
 			$header = new Header();
 			$productModel = new Product();
 			$products = $productModel->getAllSale();
-			$userId = $_COOKIE['user_id'];
-			$wishList = $productModel-> getWishById($userId);
+			if(isset($_COOKIE['user_id'])){
+				$userId = $_COOKIE['user_id'];
+				$wishList = $productModel-> getWishById($userId);
+			}
 			include_once('./views/products/product_sale.php');
 			return;
 		}

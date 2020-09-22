@@ -32,15 +32,23 @@
 
         <div class="footer_header">
              <ul class="category_top">
-                 <li class="li_inline-block li_dropdown "><a href="#" class="category_top_text">Каталог товаров</a>
+                 <li class="li_inline-block li_dropdown"><a href="#" class="category_top_text">Каталог товаров</a>
                     <ul class="category_footer display_none">
                     <?php foreach($categories as $category){extract($category, EXTR_OVERWRITE) ?>
                         <li class="li_block standart-border"><a href="<?=SITE_ROOT . 'categories/view/' . $category_id?>" class="category_footer_text"><?=$category_name?></a></li>
                     <?php } ?>    
                     </ul>
                 </li>
-                 <li class="li_inline-block"><a href="<?=SITE_ROOT . 'news/list'?>" class="category_top_text">Мастер классы</a></li>
                  <li class="li_inline-block"><a href="<?=SITE_ROOT . 'products/sale'?>" class="category_top_text">Акции</a></li>
+                 <?php if(User::checkIfUserIsAdmin()) : ;?>
+                 <li class="li_inline-block li_dropdown_admin"><a href="#" class="category_top_text">Admin</a>
+                    <ul class="category_footer_admin display_none">
+                        <li class="li_block standart-border"><a href="<?= SITE_ROOT . 'admin/users'?>" class="category_footer_text">USERS</a></li>   
+                        <li class="li_block standart-border"><a href="<?= SITE_ROOT . 'admin/product'?>" class="category_footer_text">PRODUCTS</a></li>   
+                        <li class="li_block standart-border"><a href="<?= SITE_ROOT . 'products/add'?>" class="category_footer_text">ADD</a></li>   
+                    </ul>
+                 </li>
+                 <?php endif; ?> 
             </ul>
              
             

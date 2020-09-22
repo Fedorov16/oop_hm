@@ -6,6 +6,10 @@ $('.li_dropdown').on('click', function(){
     $('.category_footer').toggleClass('display_none');
 });
 
+$('.li_dropdown_admin').on('click', function(){
+    $('.category_footer_admin').toggleClass('display_none');
+});
+
 
 //Регулярка по регистрации;
 let user_login = $('#user_login'),

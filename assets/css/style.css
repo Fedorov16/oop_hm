@@ -204,7 +204,14 @@ body {
   left: 10px;
 }
 
-.li_dropdown {
+.category_footer_admin {
+  position: absolute;
+  z-index: 1;
+  top: 52px;
+  left: -10px;
+}
+
+.li_dropdown, .li_dropdown_admin {
   position: relative;
 }
 
@@ -224,6 +231,7 @@ body {
   display: block;
   height: 100%;
   padding: 5px;
+  color: #ebebeb;
 }
 
 .category_footer_text {
