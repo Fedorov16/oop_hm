@@ -1,0 +1,20 @@
+.display_none{
+    display: none;
+}
+.category_content{
+    margin: 0 auto;
+}
+.header_category{
+    font-size: 24px;
+}
+.category_item{
+    text-align: center;
+    &:hover{
+        font-size: 26px;
+        background-color: #cc874e;
+        border-radius: 5px;
+    }
+}
+.btns{
+    text-align: center;
+}

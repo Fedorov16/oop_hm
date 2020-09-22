@@ -30,6 +30,7 @@ $('button.category_btn_review').on('click', function(){
 //     })
 
 //добавление категории
+/*
 $(document).ready(function(){
 
     $('button.category_btn_add').on('click', function(){
@@ -51,3 +52,4 @@ $(document).ready(function(){
             
     })
 });
+*/

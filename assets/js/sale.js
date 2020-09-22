@@ -1,11 +1,12 @@
         
-        
         let d = new Date(),
-        day=d.getDate();
-        month=d.getMonth() + 1,
-        year=d.getFullYear(),
-        deadline = (year + "-" + month + "-" + (day+1));
-  
+            day = d.getDate(),
+            month = d.getMonth(),
+            year = d.getFullYear(),
+            deadline = new Date(year, month, (day+1));
+            // deadline = (year + "-" + month + "-" + (day + 1));
+
+  console.log(deadline);
     function getTime(endTime) {
         let t = Date.parse(endTime) - Date.parse(new Date()),
             seconds = Math.floor((t / 1000) % 60),
@@ -50,4 +51,3 @@
     };
 
     setClock('timer', deadline);
-

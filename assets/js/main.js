@@ -1,15 +1,5 @@
 'use strict';
 
-//Подключаем js
-function include(url) {
-	let script = document.createElement('script');
-	script.src = url;
-	document.getElementsByTagName('head')[0].appendChild(script);
-}
-include('http://localhost/oop_hm/assets/js/category.js');
-include('http://localhost/oop_hm/assets/js/products.js');
-include('http://localhost/oop_hm/assets/js/news.js');
-
 //выпадающее меню навигатора
 
 $('.li_dropdown').on('click', function(){
@@ -17,7 +7,7 @@ $('.li_dropdown').on('click', function(){
 });
 
 
-//Регулярка по регистрации
+//Регулярка по регистрации;
 let user_login = $('#user_login'),
 	user_phone = $('#user_phone'),
 	user_password = $('#user_password'),
@@ -78,4 +68,12 @@ user_phone.on("focusout", () =>{
 	}
 });
 
-
+//Подключаем js
+function include(url) {
+	let script = document.createElement('script');
+	script.src = url;
+	document.getElementsByTagName('head')[0].appendChild(script);
+}
+include('http://localhost/oop_hm/assets/js/category.js');
+include('http://localhost/oop_hm/assets/js/products.js');
+include('http://localhost/oop_hm/assets/js/news.js');

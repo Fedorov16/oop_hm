@@ -26,8 +26,8 @@
             value="<?= isset($_POST['user_phone']) ? $_POST['user_phone'] : ""; ?>"><br>
             <input type="text" name='user_email' id="user_email" class="form-control" placeholder="Email"
             value="<?= isset($_POST['user_email']) ? $_POST['user_email'] : ""; ?>"><br>
-            <button class="btn btn-success" type="submit">Зарегистрироваться</button><br><br>
+            <button class="btn btn-success btn_boot" type="submit">Зарегистрироваться</button><br><br>
         </form>
-        <button class="btn btn-info"><a class="default" href="<?=SITE_ROOT?>auth">Авторизация</a></button>
+        <button class="btn btn-secondary btn_boot"><a class="default" href="<?=SITE_ROOT?>auth">Авторизация</a></button>
     </section>
     <script src="<?=SITE_ROOT?>assets/libs/bootstrap/js/bootstrap.js"></script>

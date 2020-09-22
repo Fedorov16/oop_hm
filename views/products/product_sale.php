@@ -1,8 +1,8 @@
 <script src="<?= JS; ?>sale.js" defer> </script>
 <div class="main_content">
     <section>
-        <h1>Товар дня</h1>
-        <h1>До конца акции осталось</h1>
+        <h2>Товар дня</h2>
+        <h2>До конца акции осталось</h2>
         <div class="timer-numbers" id="timer">
                 <span class="hours">18</span>
                 <span>:</span>
