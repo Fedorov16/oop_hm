@@ -71,6 +71,12 @@ user_phone.on("focusout", () =>{
 		user_phone.removeClass('outline_green');
 	}
 });
+//admin-panel
+function adminEditUser(id) {
+	console.log(id);
+}
+
+
 
 //Подключаем js
 function include(url) {

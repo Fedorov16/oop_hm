@@ -7,8 +7,11 @@ class AdminController{
         if(!User::checkIfUserAuthorized()){
             echo "У вас недостаточно прав для просмотра данной страницы";
         } else{
-            echo "тут";
-            return;
+            $title = 'Корзина';
+            $header = new Header($title);
+            $allUsersModel = new Admin();
+            $allUsers = $allUsersModel -> getAllUsers();
+            include_once('./views/admin/admin_users.php');
         }
     }
 

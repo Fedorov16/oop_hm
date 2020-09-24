@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?= CSS ?>style.css">
     <script src="<?= LIBS; ?>jquery/jquery.js"> </script>
     <script src="<?= JS; ?>cookie.js"> </script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    <script src="<?= LIBS; ?>bootstrap/js/bootstrap.js" defer></script>
     <script src="<?= JS; ?>main.js" defer> </script>
     <title><?= $title ?></title>
 </head>
