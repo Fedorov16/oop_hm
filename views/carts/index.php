@@ -12,7 +12,7 @@
         
             <form method="POST">
                 <?php if (!(User::checkIfUserAuthorized())) : ;?>
-                    <label for='user_name'>Имя</label><input type="text" class="form-control" name="user_name" 
+                    <label for='user_name'>ФИО</label><input type="text" class="form-control" name="user_name"
                     value="<?= isset($_POST['user_name']) ? $_POST['user_name'] : ""; ?>">
                     <label for='user_phone'>Телефон</label><input type="text" class="form-control" name="user_phone" 
                     value="<?= isset($_POST['user_phone']) ? $_POST['user_phone']: ""; ?>">

@@ -13,7 +13,7 @@ class CartsController{
                 $user_phone = $helper->SanitizeString($_POST['user_phone']); 
                 $user_email = $helper->SanitizeString($_POST['user_email']);
                 // TODO: check validation for user field()
-                $orderInfo = "имя: $user_name, телефон: $user_phone, email: $user_email";
+                $orderInfo = "$user_name,$user_phone,$user_email";
                 $cartModel = new Cart();
                 $cartModel->addNewOrderNoReg($cart, $orderInfo); 
                 setcookie('cart', '', 1, '/');

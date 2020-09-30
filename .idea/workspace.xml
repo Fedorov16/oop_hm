@@ -1,105 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1bc2fc94-f7d3-4f88-878c-3fe0af934955" name="Default" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <list default="true" id="1bc2fc94-f7d3-4f88-878c-3fe0af934955" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/views/admin/admin_orders.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/admin_user_info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/gulp/css/otherPages.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/gulp/css/otherPages.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/gulp/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/gulp/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/db_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/db_config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/CartsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/CartsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/handmade.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/handmade.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/admin_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/admin_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/carts/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/carts/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/products/product_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/product_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/templates/header.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CartsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/CartsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Category.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/Category.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/models/Category.php" />
-      </list>
-    </option>
+  <component name="ProjectId" id="1hyeBlC6SvKTSNwFK6fQXIRlOKc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="138" />
-    <option name="y" value="-20" />
-    <option name="width" value="1400" />
-    <option name="height" value="820" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="oop_hm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oop_hm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oop_hm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oop_hm" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="oop_hm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="oop_hm" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="db2&#10;mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/admin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\oop_hm\views\admin" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -112,54 +65,58 @@
       <option name="presentableId" value="Default" />
       <updated>1590671988709</updated>
       <workItem from="1590671991942" duration="152000" />
+      <workItem from="1600986317041" duration="331000" />
+      <workItem from="1600987631617" duration="97000" />
+      <workItem from="1600987758225" duration="1647000" />
+      <workItem from="1601114448442" duration="10049000" />
+      <workItem from="1601200802374" duration="3452000" />
+      <workItem from="1601204605732" duration="19000" />
+      <workItem from="1601204692846" duration="14000" />
+      <workItem from="1601204830386" duration="14000" />
+      <workItem from="1601204906792" duration="45000" />
+      <workItem from="1601205067959" duration="40000" />
+      <workItem from="1601205331605" duration="2329000" />
+      <workItem from="1601207747463" duration="4127000" />
+      <workItem from="1601310386966" duration="4679000" />
+      <workItem from="1601384343318" duration="4991000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controllers/CartsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="465" y="111" key="#SSH_Configurations" timestamp="1600988995193">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="465" y="111" key="#SSH_Configurations/0.0.1600.860@0.0.1600.860" timestamp="1600988995193" />
+    <state x="187" y="128" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600989052670">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="187" y="128" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1600989052670" />
+    <state x="480" y="166" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1601204258784">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="480" y="166" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1601204258784" />
+    <state width="1069" height="222" key="GridCell.Tab.0.bottom" timestamp="1601311644732">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1601311644732" />
+    <state width="1069" height="222" key="GridCell.Tab.0.center" timestamp="1601311644732">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1601311644732" />
+    <state width="1069" height="222" key="GridCell.Tab.0.left" timestamp="1601311644732">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1601311644732" />
+    <state width="1069" height="222" key="GridCell.Tab.0.right" timestamp="1601311644732">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1069" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1601311644732" />
+    <state x="177" y="51" key="SettingsEditor" timestamp="1601208372916">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="177" y="51" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1601208372916" />
   </component>
 </project>

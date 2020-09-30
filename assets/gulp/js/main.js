@@ -72,6 +72,64 @@ user_phone.on("focusout", () =>{
 	}
 });
 
+//admin-panel
+function adminEditUser(user_id) {
+	console.log(user_id);
+
+	$.ajax({
+		url: `./ajax/viewUserById?user_id=${user_id}`,
+		success: function(response){
+
+			if(response){
+				let body = $("body");
+				body.append(response);
+				// Modal
+				const modalTrigger = $("[data-modal='"+user_id+"']"),
+					modal = body.find('#modal-' + user_id)[0],
+					modalCloseBtn = $("[data-close='"+user_id+"']");
+console.log(modal);
+				modalTrigger.click(function() {
+						console.log(modal);
+						modal.classList.add('show');
+						modal.classList.remove('hide');
+						// body.style.overflow = 'hidden';
+					});
+
+
+				function closeModal() {
+					modal.classList.add('hide');
+					modal.classList.remove('show');
+					// body.style.overflow = '';
+				}
+
+				modalCloseBtn.click(closeModal());
+
+				modal.click((e) => {
+					if (e.target === modal) {
+						closeModal();
+					}
+				});
+
+				document.addEventListener('keydown', (e) => {
+					if (e.code === "Escape" && modal.classList.contains('show')) {
+						closeModal();
+					}
+				});
+			// console.log(response)
+			}
+			else{
+
+			}
+		},
+		error:function(error){
+			console.log(error);
+		}
+	})
+}
+
+
+
+
 //Подключаем js
 function include(url) {
 	let script = document.createElement('script');

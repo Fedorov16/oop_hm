@@ -7,7 +7,7 @@
         </div>
     <?php } ?>
     <div class="main_content">
-        <section>
+        <section class="container">
             <form method='POST' enctype="multipart/form-data">
                 <label for="product_icon">Логотип</label><input type="file" name="product_icon"><br>
                 <label for="product_name">Название</label><input type="text" name="product_name" 

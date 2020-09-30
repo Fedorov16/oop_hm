@@ -35,6 +35,8 @@
 		"AdminController" => [
 			"admin/users" => "viewAllUsers",
 			"admin/product" => "viewAllProduct",
+            "admin/ajax/viewUserById" => "ajaxViewUserById",
+            "admin/orders" => "viewAllOrders"
 		],
 
 		"CartsController" => [

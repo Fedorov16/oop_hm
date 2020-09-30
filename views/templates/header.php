@@ -43,9 +43,8 @@
                  <?php if(User::checkIfUserIsAdmin()) : ;?>
                  <li class="li_inline-block li_dropdown_admin"><a href="#" class="category_top_text">Admin</a>
                     <ul class="category_footer_admin display_none">
-                        <li class="li_block standart-border"><a href="<?= SITE_ROOT . 'admin/users'?>" class="category_footer_text">USERS</a></li>   
-                        <li class="li_block standart-border"><a href="<?= SITE_ROOT . 'admin/product'?>" class="category_footer_text">PRODUCTS</a></li>   
-                        <li class="li_block standart-border"><a href="<?= SITE_ROOT . 'products/add'?>" class="category_footer_text">ADD</a></li>   
+                        <li class="li_block standart-border"><a href="<?= SITE_ROOT . 'admin/users'?>" class="category_footer_text">USERS</a></li>
+                        <li class="li_block standart-border"><a href="<?= SITE_ROOT . 'admin/orders'?>" class="category_footer_text">ORDERS</a></li>
                     </ul>
                  </li>
                  <?php endif; ?> 
